@@ -12,7 +12,7 @@ export default function NotFound() {
       <p className="eyebrow">ERRO 404</p>
       <h1>Essa página não existe.</h1>
       <p>O endereço pode ter mudado ou nunca ter existido.</p>
-      <Link className="cta" href="/">
+      <Link data-cursor="button" className="cta" href="/">
         Voltar para a Aroli
       </Link>
     </main>

@@ -242,7 +242,7 @@ export function FontLab() {
       aria-labelledby="font-heading"
     >
       <div className="experience-heading">
-        <p className="eyebrow">02 / O AMBIENTE GANHA VOZ</p>
+        <p className="eyebrow">03 / Aroli Mono</p>
         <h2 id="font-heading">
           Cada caractere.
           <br />

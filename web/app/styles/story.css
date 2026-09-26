@@ -1,0 +1,84 @@
+/* Static reading is the default; the desktop scene is a progressive enhancement. */
+.brand-story { --story-gap: clamp(64px, 9vw, 128px); }
+.brand-story .landing-runway { height: auto; }
+.brand-story .landing-stage { position: relative; height: auto; display: block; overflow: clip; padding: 0 6%; }
+.brand-story .landing-heading { min-height: 90svh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: 120px 0 80px; margin: auto; }
+.brand-story .landing-heading,
+.brand-story .notebook-apps,
+.brand-story .notebook { opacity: 1; transition: none; }
+.brand-story .hero-bg { height: 90svh; }
+.brand-story .hero-download { font-size: 14px; margin-top: var(--space-6); color: var(--muted); text-decoration: underline; text-underline-offset: 6px; }
+.brand-story .notebook-apps { position: relative; inset: auto; display: grid; gap: var(--story-gap); text-align: left; max-width: 1280px; margin: auto; padding: var(--space-10) 0; }
+.brand-story .notebook-app { grid-area: auto; visibility: visible; scroll-margin-top: var(--space-10); }
+.brand-story .notebook-app h2 { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; margin-bottom: var(--space-6); }
+.brand-story .notebook-app .eyebrow { margin: 0 0 var(--space-4); font-size: 14px; }
+.brand-story .linear-capture { margin-top: var(--space-8); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; }
+.brand-story .linear-capture img { width: 100%; height: auto; display: block; }
+.brand-story .notebook-entrance,
+.brand-story .continuity-surface,
+.brand-story .landing-meter,
+.brand-story .stage-fade,
+.scene-nav { display: none; }
+.scene-caption { position: relative; margin: var(--space-6) 0 0; padding-bottom: var(--space-8); font-size: 13px; color: var(--muted); text-align: center; }
+.eyebrow { font-size: 13px; letter-spacing: 0.025em; }
+.experience-section { padding-top: var(--space-10); padding-bottom: var(--space-10); }
+.experience-heading { gap: var(--space-6) 8%; }
+.story-bridge { min-height: 0; padding: var(--story-gap) 6% var(--space-10); }
+.bridge-object { position: relative; }
+.pointer-specimen { width: min(640px, 100%); padding: var(--space-10) 0; }
+.specimen-window { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); align-items: center; font-size: clamp(24px, 4vw, 48px); letter-spacing: -0.035em; }
+.specimen-selection { position: relative; padding: var(--space-2) var(--space-3); border-radius: var(--radius-xs); background: #29252f; color: var(--bone); }
+.typewriter-letter { display: inline-block; }
+.specimen-cursor { position: absolute; width: 64px; height: 64px; left: 100%; top: 100%; translate: -50% -20%; pointer-events: none; transform-origin: 50% 20%; }
+.specimen-cursor img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.specimen-cursor--text { opacity: 0; visibility: hidden; }
+.is-typing .specimen-cursor { right: auto; bottom: auto; }
+.bridge-caption { color: var(--muted); font-size: 14px; margin: var(--space-8) 0 0; }
+.mono-specimen { display: flex; gap: var(--space-6); align-items: center; font-family: "Aroli Mono", monospace; font-size: clamp(100px, 20vw, 240px); line-height: 1; letter-spacing: -0.05em; }
+.specimen-caret { height: 0.8em; width: 3px; background: var(--bone); }
+.landing-more { max-width: 1400px; padding-top: var(--story-gap); }
+.landing-more h2 { margin-bottom: var(--space-6); }
+.more-intro { color: var(--muted); max-width: 48ch; font-size: 17px; line-height: 1.65; margin: 0 0 var(--space-10); }
+.more-list a { padding: var(--space-8) 0; }
+.more-list span { font-size: 14px; line-height: 1.5; }
+.more-list strong { font-size: clamp(24px, 2.5vw, 36px); }
+.brand-story footer { background: var(--ink); }
+.brand-story .footer-note { font-size: 12px; letter-spacing: 0.025em; }
+
+/* Enabled only after the matching GSAP scene has initialized. */
+.story-enhanced .landing-runway { height: 420svh; }
+.story-enhanced .landing-stage { position: sticky; top: 0; height: 100svh; display: flex; align-items: center; justify-content: center; }
+.story-enhanced .landing-heading { min-height: 0; padding: 0; }
+.story-enhanced .hero-bg { height: 100%; }
+.story-enhanced .notebook-apps { position: absolute; top: var(--space-8); left: 6%; right: 6%; display: grid; padding: 0; text-align: center; z-index: var(--z-apps); }
+.story-enhanced .notebook-app { grid-area: 1/1; }
+.story-enhanced .notebook-app h2 { font-size: clamp(26px, 3.5svh, 40px); margin-bottom: var(--space-3); }
+.story-enhanced .notebook-app h2 br { display: none; }
+.story-enhanced .notebook-app h2 br::after { content: ' '; }
+.story-enhanced .notebook-app .eyebrow { margin-bottom: var(--space-2); }
+.story-enhanced .linear-capture { display: none; }
+/* Fade outside the perspective subtree so opacity never flattens the keyboard. */
+.story-enhanced .notebook-entrance { display: block; position: absolute; inset: 0; pointer-events: none; z-index: var(--z-scene); }
+.story-enhanced .continuity-surface { display: grid; }
+.story-enhanced .notebook { width: min(72vw, 1050px, calc(51svh * 1.65)); }
+.story-enhanced .scene-nav { display: flex; position: absolute; bottom: 88px; gap: var(--space-2); z-index: var(--z-apps); }
+.scene-nav button { background: var(--ink); color: var(--muted); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-5); font: inherit; font-size: 14px; cursor: pointer; }
+.scene-nav button span { margin-right: var(--space-2); font-size: 12px; }
+.scene-nav button[aria-pressed="true"] { color: var(--bone); border-color: var(--bone); }
+.story-enhanced .scene-caption { position: absolute; bottom: var(--space-10); margin: 0; padding: 0; z-index: var(--z-apps); }
+.story-enhanced .landing-meter { display: block; bottom: var(--space-5); z-index: var(--z-content); }
+.story-enhanced .landing-meter span { transform: scaleX(0); }
+.story-enhanced .stage-fade { display: block; height: 24svh; }
+@media (max-width: 760px) {
+  .brand-story .landing-heading h1 { font-size: clamp(40px, 10vw, 64px); }
+  .brand-story .hero-bg { opacity: 0.6; }
+  .brand-story .landing-heading { min-height: 88svh; }
+  .experience-heading h2 { font-size: clamp(36px, 9vw, 56px); }
+  .experience-heading > p:last-child { font-size: 16px; }
+  .specimen-cursor { width: 48px; height: 48px; }
+  .more-list a { grid-template-columns: 1fr 24px; gap: var(--space-2) var(--space-4); }
+  .more-list a > span:first-child { grid-column: 1; }
+  .more-list strong { grid-column: 1; }
+  .more-list a > span:nth-child(3) { grid-column: 1; }
+  .more-list a > span:last-child { grid-column: 2; grid-row: 1 / 4; }
+}

@@ -71,11 +71,11 @@
   margin: 0;
 }
 .experience-heading h2 {
-  font-family: var(--font-manrope), sans-serif;
+  font-family: var(--font-brand), sans-serif;
   font-size: clamp(38px, 5.5vw, 76px);
   font-weight: 400;
-  line-height: 1.04;
-  letter-spacing: -0.055em;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
   margin: 0;
 }
 .experience-heading h2 em {

@@ -7,6 +7,7 @@ import "./styles/notebook.css";
 import "./styles/sections.css";
 import "./styles/cursor.css";
 import "./styles/experience.css";
+import "./styles/story.css";
 
 const aroliSans = localFont({
   src: [

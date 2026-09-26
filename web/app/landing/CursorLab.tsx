@@ -68,15 +68,15 @@ export function CursorLab({
       aria-labelledby="cursor-heading"
     >
       <div className="experience-heading">
-        <p className="eyebrow">01 / O AMBIENTE RESPONDE</p>
+        <p className="eyebrow">02 / Aroli Pointer</p>
         <h2 id="cursor-heading">
           O próximo gesto
           <br />
           <em>é seu.</em>
         </h2>
         <p>
-          O mesmo silêncio. Uma nova presença. O círculo dá lugar ao conjunto
-          Aroli Pointer. Descubra como cada gesto muda de forma.
+          Clique, selecione, arraste. O Aroli Pointer acompanha a intenção
+          de cada movimento. Experimente os gestos abaixo.
         </p>
       </div>
       <div className="experience-panel cursor-panel">

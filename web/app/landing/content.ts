@@ -23,6 +23,8 @@ export type ThemeEntry = {
 };
 
 export const THEMES: ThemeEntry[] = [
+  { name: "Aroli Pointer", role: "Cursor", detail: "Uma forma para cada gesto.", path: "themes/cursor/aroli" },
+  { name: "Aroli Mono", role: "Fonte", detail: "Tipografia autoral para o código.", path: "fonts/aroli" },
   {
     name: "VS Code",
     role: "Editor",
