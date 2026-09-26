@@ -70,4 +70,4 @@ Verificar o percurso em aparelho físico, barras móveis do navegador, legibilid
 
 ---
 
-Aroli no GitHub: https://github.com/eduardoaugustolb/aroli
+Aroli no GitHub: https://github.com/getaroli/aroli

@@ -1,4 +1,4 @@
-export const REPO = "https://github.com/eduardoaugustolb/aroli";
+export const REPO = "https://github.com/getaroli/aroli";
 
 export type NotebookApp = {
   id: string;

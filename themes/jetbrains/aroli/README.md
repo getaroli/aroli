@@ -62,4 +62,4 @@ contraste próprio para indicar estados de interação.
 
 ---
 
-Aroli no GitHub: https://github.com/eduardoaugustolb/aroli
+Aroli no GitHub: https://github.com/getaroli/aroli-jetbrains

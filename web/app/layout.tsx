@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   title,
   description,
   keywords: ["aroli", "tema escuro", "dark theme", "zed", "kitty", "starship", "terminal", "wallpapers", "sistema visual"],
-  authors: [{ name: "Aroli", url: "https://github.com/eduardoaugustolb/aroli" }],
+  authors: [{ name: "Aroli", url: "https://github.com/getaroli/aroli" }],
   robots: { index: true, follow: true },
   openGraph: {
     title,
@@ -56,7 +56,7 @@ const jsonLd = {
   "@type": "WebSite",
   name: "Aroli",
   description,
-  url: "https://github.com/eduardoaugustolb/aroli",
+  url: "https://github.com/getaroli/aroli",
   inLanguage: "pt-BR",
 };
 

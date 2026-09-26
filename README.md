@@ -12,22 +12,26 @@
 
 | Produto | Conteúdo |
 | --- | --- |
-| Aroli Themes | Aroli Dark e Aroli Black, com as mesmas cores da geração anterior |
-| [Aroli Mono](fonts/aroli/README.md) | Fonte autoral para código, ligaduras e variante NF; protótipo |
-| [Aroli Pointer](themes/cursor/aroli/README.md) | Cursores Linux com 32 estados e aliases |
-| [Aroli Backdrops](wallpapers/README.md) | Fundos e composições do ambiente |
-| [Aroli Desktop](https://github.com/eduardoaugustolb/aroli-desktop) | Ambiente pronto (Hyprland + Quickshell + instalador); repo independente em `desktop/` |
+| Aroli Themes | Aroli Dark e Aroli Black, com as mesmas cores da geração anterior ([repos](https://github.com/orgs/getaroli/repositories?q=aroli-)) |
+| [Aroli Mono](fonts/aroli/README.md) | Fonte autoral para código, ligaduras e variante NF; protótipo ([repo](https://github.com/getaroli/aroli-mono)) |
+| [Aroli Pointer](themes/cursor/aroli/README.md) | Cursores Linux com 32 estados e aliases ([repo](https://github.com/getaroli/aroli-pointer)) |
+| [Aroli Backdrops](wallpapers/README.md) | Fundos e composições do ambiente ([repo](https://github.com/getaroli/aroli-backdrops)) |
+| [Aroli Desktop](https://github.com/getaroli/desktop) | Ambiente pronto (Hyprland + Quickshell + instalador); repo independente em `desktop/` |
 
 ## Temas disponíveis
 
-| Aplicação | Variantes | Guia |
-| --- | --- | --- |
-| VS Code | Dark / Black | [Instalação](themes/vscode/aroli/README.md) |
-| Zed | Dark | [Instalação](themes/zed/aroli/README.md) |
-| JetBrains | Dark | [Instalação](themes/jetbrains/aroli/README.md) |
-| Chrome | Dark / Black | [Dark](themes/chrome/aroli-dark/README.md) · [Black](themes/chrome/aroli-black/README.md) |
-| Kitty | Dark | [Instalação](themes/kitty/aroli/README.md) |
-| Starship | Prompt | [Instalação](themes/starship/aroli/README.md) |
+| Aplicação | Variantes | Repo | Guia |
+| --- | --- | --- | --- |
+| VS Code | Dark / Black | [aroli-vscode](https://github.com/getaroli/aroli-vscode) | [Instalação](themes/vscode/aroli/README.md) |
+| Zed | Dark | [aroli-zed](https://github.com/getaroli/aroli-zed) | [Instalação](themes/zed/aroli/README.md) |
+| JetBrains | Dark | [aroli-jetbrains](https://github.com/getaroli/aroli-jetbrains) | [Instalação](themes/jetbrains/aroli/README.md) |
+| Chrome | Dark / Black | [aroli-chrome](https://github.com/getaroli/aroli-chrome) | [Dark](themes/chrome/aroli-dark/README.md) · [Black](themes/chrome/aroli-black/README.md) |
+| Kitty | Dark | [aroli-kitty](https://github.com/getaroli/aroli-kitty) | [Instalação](themes/kitty/aroli/README.md) |
+| Starship | Prompt | [aroli-starship](https://github.com/getaroli/aroli-starship) | [Instalação](themes/starship/aroli/README.md) |
+
+Este repo é a fonte da verdade: edite aqui. Cada push na `main` espelha o
+módulo para o seu repo via `split.yml`; cada repo tem CI próprio e releases
+independentes (`vX.Y.Z`).
 
 ## Identidade e desenvolvimento
 
@@ -43,7 +47,7 @@ Abra [Aroli.code-workspace](Aroli.code-workspace) para exibir o workspace como *
 
 A migração está concluída: identidade, nomes públicos, repositório, pastas e IDs de extensão são Aroli. A paleta permanece; Dark e Black são os nomes das variantes.
 
-Os IDs de VS Code (`Aroli Dark`/`Aroli Black`), Zed (`aroli-themes`) e JetBrains (`aroli.jetbrains.theme`) mudaram — selecione os temas de novo após atualizar. As pastas Chrome agora são `aroli-dark`/`aroli-black`; recarregue as instalações unpacked. O repositório é [eduardoaugustolb/aroli](https://github.com/eduardoaugustolb/aroli), com redirecionamento do endereço antigo. Histórico em [docs/migrations/2026-09-20-aroli.md](docs/migrations/2026-09-20-aroli.md).
+Os IDs de VS Code (`Aroli Dark`/`Aroli Black`), Zed (`aroli-themes`) e JetBrains (`aroli.jetbrains.theme`) mudaram — selecione os temas de novo após atualizar. As pastas Chrome agora são `aroli-dark`/`aroli-black`; recarregue as instalações unpacked. O repositório é [getaroli/aroli](https://github.com/getaroli/aroli), com redirecionamento dos endereços antigos. Histórico em [docs/migrations/2026-09-20-aroli.md](docs/migrations/2026-09-20-aroli.md).
 
 ## Licença
 

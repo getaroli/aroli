@@ -64,7 +64,7 @@ com o número correspondente.
 
 ---
 
-Aroli no GitHub: https://github.com/eduardoaugustolb/aroli
+Aroli no GitHub: https://github.com/getaroli/aroli-chrome
 
 ## Migração Aroli
 
