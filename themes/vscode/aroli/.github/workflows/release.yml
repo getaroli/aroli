@@ -28,21 +28,21 @@ jobs:
   publish-marketplace:
     needs: release
     runs-on: ubuntu-latest
-    if: ${{ secrets.VSCE_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
       - name: Publish to VS Code Marketplace
+        if: ${{ secrets.VSCE_TOKEN != '' }}
         run: bunx --bun @vscode/vsce publish --no-dependencies -p "${{ secrets.VSCE_TOKEN }}"
 
   publish-openvsx:
     needs: release
     runs-on: ubuntu-latest
-    if: ${{ secrets.OVSX_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
       - name: Publish to Open VSX
+        if: ${{ secrets.OVSX_TOKEN != '' }}
         run: |
           bunx --bun @vscode/vsce package --no-dependencies
           bunx --bun ovsx publish aroli-themes-*.vsix -p "${{ secrets.OVSX_TOKEN }}"
