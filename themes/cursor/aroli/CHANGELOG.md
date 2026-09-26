@@ -1,23 +1,23 @@
-# Migração Aroli — 2026-09-20
+# Migração Aroli - 2026-09-20
 
 Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preservada. Consulte o registro em docs/migrations/2026-09-20-aroli.md na raiz. Releases anteriores abaixo são históricas.
 
 # Changelog
 
-## Base do mindinho — 2026-09-16
+## Base do mindinho - 2026-09-16
 
 - ligação do mindinho à palma alargada na mão aberta, com espaço interdigital
   mais raso e curva externa mais cheia;
 - contorno único de 2,5 preservado: a correção recupera área Bone na geometria,
   sem afinar o traço nem alterar a região inferior compartilhada das mãos.
 
-## Ponta do indicador de progresso — 2026-09-16
+## Ponta do indicador de progresso - 2026-09-16
 
 - ponta circular alinhada à tangente do arco e ao sentido horário da animação;
 - substituído o cotovelo radial por cabeça triangular dentro do envelope do selo;
 - símbolo compartilhado pela versão estática e pelos 24 quadros animados.
 
-## Carregamento animado — 2026-09-16
+## Carregamento animado - 2026-09-16
 
 - wait gira a ampulheta; progress gira apenas o símbolo do selo;
 - 24 quadros de 50 ms por tamanho (24/32/48 px), com hotspots fixos;
@@ -28,7 +28,7 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - todos os quadros inspecionados em claro/escuro; teste na sessão real pendente.
 
 
-## Coerência dos estados auxiliares — 2026-09-16
+## Coerência dos estados auxiliares - 2026-09-16
 
 - substituído núcleo Ink com halo Bone por corpo Bone e limite Charcoal;
 - direcionais reconstruídos como silhuetas preenchidas, com hastes e pontas;
@@ -40,7 +40,7 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - critérios de identidade registrados em QUALITY.md; validação de sessão
   e reconhecimento pelo usuário permanecem pendentes.
 
-## Halo nos estados de traço — 2026-09-15
+## Halo nos estados de traço - 2026-09-15
 
 - estados finos (text, resizes, crosshair, cell, wait, zoom e demais de
   `generate-states.ts`) ganharam halo Bone sob o núcleo Ink;
@@ -49,7 +49,7 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - `make check preview` aprovado: 32 cursores × 3 tamanhos, hotspots, alpha,
   margens e aliases; teste em sessão real pendente.
 
-## Laboratório de cursores — 2026-09-15
+## Laboratório de cursores - 2026-09-15
 
 - adicionada página test.html com CSS e JS separados;
 - catálogo dos 32 estados e aliases, filtro e playground de texto, links,
@@ -57,21 +57,21 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - documentação de qualidade passou a exigir a revisão da página além da folha
   de contato dos binários.
 
-## Estados padrão completos — 2026-09-15
+## Estados padrão completos - 2026-09-15
 
 - adicionados all-scroll, auto, cell, redimensionamentos, context-menu,
   crosshair, help, progresso, texto, espera, zoom e cursor oculto;
 - `move` corrigido para all-scroll; `dnd-move` continua com a mão fechada;
 - formas auxiliares vêm de um gerador único e os 96 frames são verificados.
 
-## Acabamento da família — 2026-09-15
+## Acabamento da família - 2026-09-15
 
 - microajustes na base do indicador, ritmo dos dedos dobrados e lateral do hover;
 - base do mindinho aberto integrada por curvas, preservando largura e afastamento;
 - mão fechada preservada nesta etapa; base anatômica e outline de 2,5 inalterados;
 - 21 frames verificados e silhuetas inspecionadas em tamanhos reduzidos.
 
-## Refinamento de caráter — 2026-09-15
+## Refinamento de caráter - 2026-09-15
 
 - hover com indicador levemente inclinado, base orgânica e nós mais definidos;
 - assimetrias discretas na mão fechada, preservando sua estrutura;
@@ -79,7 +79,7 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - polegar encurtado, lateral da palma mais cheia e punho suavizado nas três poses;
 - silhuetas e binários inspecionados em claro/escuro; 21 frames verificados.
 
-## Reconstrução anatômica — 2026-09-15
+## Reconstrução anatômica - 2026-09-15
 
 - palma alta, polegar curto e arredondado, punho simples e dedos articulados;
 - removidos dentes inferiores e riscos internos;
@@ -87,7 +87,7 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - testes revistos para não cristalizar a construção rejeitada de barras;
 - 21 frames verificados; reconhecimento pelo usuário, sessão real e CI remota pendentes.
 
-## Anatomia compartilhada e qualidade — 2026-09-15
+## Anatomia compartilhada e qualidade - 2026-09-15
 
 - gerador único para largura dos dedos, polegar, dorso e punho das três mãos;
 - espaços reais entre dedos da mão aberta, preservados em 24/32/48 px;
@@ -97,14 +97,14 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - CI ampliada para compilar, verificar e publicar provas visuais;
 - 21 frames verificados localmente; sessão real e CI remota ainda não testadas.
 
-## Refinamento visual — 2026-09-15
+## Refinamento visual - 2026-09-15
 
 - mãos redesenhadas em vista dorsal, com três marcas alinhadas, punho e dedos completos;
 - selos de status com a mesma margem radial interna, incluindo a espessura dos símbolos;
 - seta com curva inferior esquerda e encontros chanfrados derivados do limiar Umbra;
 - sete estados reconstruídos e verificados em 24, 32 e 48 px.
 
-## Correções — 2026-09-15
+## Correções - 2026-09-15
 
 - pontos de clique consistentes na seta e nos estados de arraste; hover junto à ponta do dedo;
 - fechamento do contorno e separadores dos dedos da mão corrigidos;
@@ -114,7 +114,7 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - pixels XCursor gravados em ARGB pré-multiplicado, evitando halos;
 - preview dos seis estados e verificação dos 18 frames gerados.
 
-## 0.1.0 — 2026-09-15
+## 0.1.0 - 2026-09-15
 
 - primeira versão do Umbra Cursor;
 - seta, hover e estados essenciais de drag-and-drop autorais;

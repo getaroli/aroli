@@ -1,27 +1,27 @@
-# Migração Aroli — 2026-09-20
+# Migração Aroli - 2026-09-20
 
 Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preservada. Consulte o registro em docs/migrations/2026-09-20-aroli.md na raiz. Releases anteriores abaixo são históricas.
 
 # Changelog
 
-## 0.905 — 2026-09-24
+## 0.905 - 2026-09-24
 
 - Unificada a família óptica de pontos: `.`, `,`, `:`, `;`, `!` e `?` usam o mesmo diâmetro mínimo, preservando contraste em 14–16 px.
 - Rabicho de `,` e `;` ampliado e estendido para não se confundir com `.` a 15 px.
 - Specimen e regressão raster passam a cobrir pontuação em 10–24 px, inclusive no tamanho do buffer do Zed.
 
-## 0.904 — 2026-09-23
+## 0.904 - 2026-09-23
 
 - Rabicho da vírgula redesenhado: 1.3x a haste, curva para a esquerda até -150. O rabicho fino (0.57 px a 15 px) sumia no antialiasing e sobrava só o ponto.
 - `;` herda o novo rabicho; ponto segue igual.
 
-## 0.903 — 2026-09-23
+## 0.903 - 2026-09-23
 
 - Vírgula com o ponto do final mais o rabicho descendente; antes era só o rabicho e se confundia com o ponto em tamanho de código.
 - Metade inferior do `;` passa a ser a mesma vírgula, mantendo o ponto superior.
 - Verificação de regressão: `.` na base, `,`/`;` descendentes, pares `.`/`,` e `,`/`;` distintos; linha de pontuação na prova visual.
 
-## 0.902 — 2026-09-23
+## 0.902 - 2026-09-23
 
 - Piso nivelado na construção: barras horizontais e ápices diagonais deslocados por |dx|/len*hw para a borda externa alinhar em 0, sem escala vertical por glifo.
 - Removida a normalização por escala do 0.901, que distorcia contornos e deixava o hinting inconsistente entre pesos.
@@ -30,14 +30,14 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 - Raster Pillow/FreeType: 15 px exato nos três pesos; 12/14/16/24 px dentro de 1 px.
 - Verificação de base permite overshoot óptico [-17,1]; altura-x permite [1064,1082].
 
-## 0.901 — 2026-09-23
+## 0.901 - 2026-09-23
 
 - Corrigida a linha de base irregular: as bordas reais dos contornos agora terminam em y=0, independentemente da orientação das hastes.
 - Altura das minúsculas e maiúsculas normalizada; descendentes preservados abaixo da base.
 - Zonas de hinting atualizadas para os novos extremos e verificações de regressão para base e altura-x.
 - A validação da 0.9 não detectou o desnivelamento observado depois no Zed; a 0.901 acrescenta provas específicas de alinhamento.
 
-## 0.9 — 2026-09-23
+## 0.9 - 2026-09-23
 
 - Redesenho de i, I, j e l, preservando células fixas e diferenciação de 1.
 - Minúsculas maiores e pesos ópticos 78/92/106 para leitura em tamanho de código.

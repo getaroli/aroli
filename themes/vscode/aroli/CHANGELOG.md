@@ -1,4 +1,4 @@
-# Migração Aroli — 2026-09-20
+# Migração Aroli - 2026-09-20
 
 Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preservada. Consulte o registro em docs/migrations/2026-09-20-aroli.md na raiz. Releases anteriores abaixo são históricas.
 
@@ -12,7 +12,7 @@ Repo próprio `getaroli/aroli-vscode`; `repository.url` atualizado. Sem mudança
 
 - classes e construtores (`new X`, `X()`, `extends X`) agora Lilac em vez de Slate: o Slate apagado dominava trechos com injeção de dependência;
 - chaves de objeto (`{ chave: valor }`) em Amber também no token semântico (`property.declaration`), igual ao TextMate;
-- `interface`, `enum`, `struct` e tipos genéricos continuam Slate — só classe (instanciável/chamável) mudou de família;
+- `interface`, `enum`, `struct` e tipos genéricos continuam Slate, só classe (instanciável/chamável) mudou de família;
 - ajuste só do VS Code, documentado aqui; Zed mantém o mapeamento original.
 
 ## [0.2.0] - 2026-09-06

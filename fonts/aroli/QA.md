@@ -1,4 +1,4 @@
-# Validação 0.9 — 2026-09-23
+# Validação 0.9 - 2026-09-23
 
 ## Correção 0.905
 
@@ -10,7 +10,7 @@ O specimen e a regressão raster cobrem `.,:;!?` em 10, 12, 14, 15, 16 e 24 px.
 
 ## Correção 0.904
 
-O 0.903 não resolveu no olho: medi o rabicho e ele tem 0.57 px a 15 px —
+O 0.903 não resolveu no olho: medi o rabicho e ele tem 0.57 px a 15 px,
 some no antialiasing e sobra só o ponto. Novo rabicho com 1.3x a haste,
 curva à esquerda até -150 (borda ~-362): `,` e `;` com gancho visível a
 15 px no render FreeType, `.` inalterado. Fundo de tela escuro exige esse
@@ -18,7 +18,7 @@ contraste extra; o Zed precisa ser reiniciado para carregar os novos OTFs.
 
 ## Correção 0.903
 
-`.` era só o ponto e `,` só o rabicho — em tamanho de código ambos liam como
+`.` era só o ponto e `,` só o rabicho, em tamanho de código ambos liam como
 o mesmo borrão na base. Agora `,` = ponto do final + rabicho e a metade
 inferior de `;` é essa mesma vírgula. Um guarda incompleto (`!.:;?ij`, sem a
 vírgula) quase anulou a correção; a remedição confirma `comma.y2 == period.y2`
@@ -29,7 +29,7 @@ pontuação, inspecionada no PNG.
 ## Correção 0.902
 
 Causa raiz do piso desnivelado: barras horizontais em y=0 com borda em -hw
-contra terminais verticais com borda em 0 — diferença de meio traço, consistente
+contra terminais verticais com borda em 0, diferença de meio traço, consistente
 em E/L/D/O/0 contra H/M/N. O 0.901 mascarou com escala vertical por glifo,
 o que distorceu contornos e quebrou o autohinter (m Regular só com ombro,
 SemiBold sem hints).

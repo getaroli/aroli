@@ -1,14 +1,14 @@
-# Migração Aroli — 2026-09-20
+# Migração Aroli - 2026-09-20
 
 Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preservada. Consulte o registro em docs/migrations/2026-09-20-aroli.md na raiz. Releases anteriores abaixo são históricas.
 
-# Changelog — Umbra para Chrome
+# Changelog: Umbra para Chrome
 
-## [0.2.1] — 2026-09-26
+## [0.2.1] - 2026-09-26
 
 Repo próprio `getaroli/aroli-chrome`; `homepage_url` atualizada; script de package movido para a raiz do repo. Sem mudança de cores.
 
-## [0.1.0] — 2026-09-14
+## [0.1.0] - 2026-09-14
 
 - Primeira versão do tema.
 - Frame Charcoal `#101111`, toolbar Raised `#161919`, texto Bone.

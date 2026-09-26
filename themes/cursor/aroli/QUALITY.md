@@ -139,7 +139,7 @@ e o outline permanecem invariantes durante esse acabamento.
 - Regras anteriores de barras/gaps fixos explicitamente retiradas.
 - Reconhecimento pelo usuário, sessão real e execução remota da CI pendentes.
 
-### Animação — 2026-09-16
+### Animação - 2026-09-16
 
 Espera e progresso são animações funcionais de atividade; não loops decorativos.
 Use a opção `--animation` após o caminho da folha de contato para inspecionar

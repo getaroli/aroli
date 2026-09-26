@@ -1,4 +1,4 @@
-# Aroli — assets de produção
+# Aroli: assets de produção
 
 Direção aprovada: [storyboard ImageGen](../../output/imagegen/aroli-study-01/storyboard.png). Implementação vetorial original baseada nessa referência, sem embutir raster nos logos.
 

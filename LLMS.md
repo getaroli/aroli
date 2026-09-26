@@ -1,4 +1,4 @@
-# Aroli — guia de navegação para agentes
+# Aroli: guia de navegação para agentes
 
 ## Leitura mínima
 

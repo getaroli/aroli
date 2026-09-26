@@ -1,4 +1,4 @@
-# Aroli — direção do site
+# Aroli: direção do site
 
 Atualizada em 2026-09-20. O plano Umbra foi substituído pela identidade aprovada em output/imagegen/aroli-study-01/storyboard.png. Histórico anterior permanece no Git.
 

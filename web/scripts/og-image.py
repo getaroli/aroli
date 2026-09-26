@@ -51,7 +51,7 @@ SVG = f"""<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" view
 </svg>
 """
 
-ALT_TEXT = "Aroli — Tudo encontra seu lugar. Temas escuros para VS Code, Zed, Kitty e Starship."
+ALT_TEXT = "Aroli. Tudo encontra seu lugar. Temas escuros para VS Code, Zed, Kitty e Starship."
 
 
 def main() -> None:

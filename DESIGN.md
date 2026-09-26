@@ -1,4 +1,4 @@
-# Aroli — identidade visual
+# Aroli: identidade visual
 
 Versão 1.1 · 2026-09-21. Direção aprovada no storyboard; vetores de produção redesenhados a partir dele. Método: skill memorable-visual-identity. [Prancha aprovada](output/imagegen/aroli-study-01/storyboard.png) · [Sistema vetorial](branding/aroli/system.svg) · [Migração](docs/migrations/2026-09-20-aroli.md).
 

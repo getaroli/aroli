@@ -1,14 +1,14 @@
-# Migração Aroli — 2026-09-20
+# Migração Aroli - 2026-09-20
 
 Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preservada. Consulte o registro em docs/migrations/2026-09-20-aroli.md na raiz. Releases anteriores abaixo são históricas.
 
-# Changelog — Umbra Ink para Chrome
+# Changelog: Umbra Ink para Chrome
 
-## [0.2.1] — 2026-09-26
+## [0.2.1] - 2026-09-26
 
 Repo próprio `getaroli/aroli-chrome`; `homepage_url` atualizada. Sem mudança de cores.
 
-## [0.1.0] — 2026-09-14
+## [0.1.0] - 2026-09-14
 
 - Primeira versão da variante Ink.
 - Frame, omnibox e NTP em Ink `#050505`, toolbar em Charcoal `#101111`.

@@ -1,10 +1,10 @@
 # Aroli para VS Code
 
-Tema dark para o VS Code inspirado em ambientes noturnos de baixo brilho. Usa charcoal em vez de preto absoluto para separar editor, painéis e controles; a sintaxe recebe poucos acentos frios e pouco saturados — mesma linguagem do Aroli para Zed.
+Tema dark para o VS Code inspirado em ambientes noturnos de baixo brilho. Usa charcoal em vez de preto absoluto para separar editor, painéis e controles; a sintaxe recebe poucos acentos frios e pouco saturados, mesma linguagem do Aroli para Zed.
 
 Duas variantes incluídas:
 
-Os rótulos do seletor são Aroli Dark e Aroli Black, e os IDs de configuração são os mesmos nomes — quem usava `Umbra`/`Umbra Ink` precisa selecionar o tema de novo em `workbench.colorTheme`. O identificador da extensão é `DevEduardo.aroli-themes`.
+Os rótulos do seletor são Aroli Dark e Aroli Black, e os IDs de configuração são os mesmos nomes, quem usava `Umbra`/`Umbra Ink` precisa selecionar o tema de novo em `workbench.colorTheme`. O identificador da extensão é `DevEduardo.aroli-themes`.
 
 | Tema | Fundo do editor | Painéis |
 | --- | --- | --- |
@@ -101,11 +101,11 @@ Isso não altera `settings.json` nem outras extensões. Se o tema ainda aparecer
 - variantes: `Aroli Dark` (vs-dark) e `Aroli Black` (vs-dark);
 - requer: VS Code `^1.80.0` (conforme `engines` do `package.json`);
 - versão local preparada: `0.4.0` como `DevEduardo.aroli-themes`;
-- não inclui: fonte, ícones de arquivo/produto, ligaduras ou comportamento — o tema mexe só com cores.
+- não inclui: fonte, ícones de arquivo/produto, ligaduras ou comportamento, o tema mexe só com cores.
 
 ## Limitações conhecidas
 
-- `terminal.ansiBlack` acompanha o fundo do editor em cada variante; sobre fundos explícitos escuros ele pode sumir — comportamento herdado do mapeamento Zed;
+- `terminal.ansiBlack` acompanha o fundo do editor em cada variante; sobre fundos explícitos escuros ele pode sumir, comportamento herdado do mapeamento Zed;
 - foco usa `#9AB7B0`; verificar contraste no seu monitor antes de considerar final.
 
 ---

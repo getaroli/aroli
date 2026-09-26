@@ -1,15 +1,15 @@
-# Aroli Backdrops — registro da coleção anterior
+# Aroli Backdrops: registro da coleção anterior
 
 Estes prompts e descrições foram usados na geração Umbra e permanecem históricos. Apenas os links dos arquivos acompanham os novos caminhos. A identidade atual Encaixe está em [README.md](README.md).
 
-## Segunda coleção — natureza e matéria
+## Segunda coleção: natureza e matéria
 
 Gerados com imagegen integrado. Ambos em 1672 × 941 px, preservados sem redimensionamento. Inspeção visual realizada: imagens panorâmicas escuras, sem texto ou elementos de interface.
 
 - [Obsidian Dunes](aroli-obsidian-dunes.png): estética de fotografia aérea de dunas vulcânicas, luz suave nas cristas.
 - [Ink Mountains](aroli-black-mountains.png): montanhas em nanquim sobre papel carvão, com névoa em camadas.
 
-### Obsidian Dunes — prompt
+### Obsidian Dunes: prompt
 
 ```text
 Use case: stylized-concept
@@ -17,7 +17,7 @@ Asset type: desktop wallpaper for Umbra, wide landscape 16:9.
 Primary request: An exquisite abstract aerial photograph of black volcanic sand dunes. Long flowing wind-carved ridges overlap like folded black silk, one sweeping diagonal crest illuminated by very soft warm ivory dawn light, deep charcoal shadows with subtle readable texture. Actual natural sand, not fabric. Restrained fine-art landscape photography, tactile tiny grains along the ridge, immense scale, no visible sky, no horizon, no objects. Elegant asymmetrical composition with generous quiet dark areas, few large shapes, controlled tonal contrast suitable behind desktop windows. Predominantly ink black #050505 and charcoal #101111 with muted ash and a very small soft warm bone highlight. Full bleed panoramic image, highest available resolution. No text, logo, watermark, UI, border, people, vegetation, stars, neon or glossy material.
 ```
 
-### Ink Mountains — prompt
+### Ink Mountains: prompt
 
 ```text
 Use case: stylized-concept

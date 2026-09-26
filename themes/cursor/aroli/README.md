@@ -15,7 +15,7 @@ Os estados auxiliares mantêm corpo Bone e contorno Charcoal de 2,5 unidades.
 Setas direcionais têm silhuetas preenchidas; instrumentos de precisão usam
 núcleo claro com limite escuro. Menu e progresso reutilizam a seta original
 e a geometria dos selos. Não usar núcleo Ink com halo Bone.
-Os desenhos são autorais — não são assets do macOS.
+Os desenhos são autorais, não são assets do macOS.
 
 Os selos compartilham centro `(36, 35)`, raio de 9 px e contorno de 2 px.
 Os símbolos ficam inscritos em um raio de 6,25 px (incluindo seus traços),

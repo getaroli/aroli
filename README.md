@@ -35,7 +35,7 @@ independentes (`vX.Y.Z`).
 
 ## Identidade e desenvolvimento
 
-Abra [Aroli.code-workspace](Aroli.code-workspace) para exibir o workspace como **Aroli**. Se a sua pasta de checkout ainda se chama `umbra`, pode renomeá-la para `aroli` — o Git acompanha o conteúdo, sem efeito no histórico.
+Abra [Aroli.code-workspace](Aroli.code-workspace) para exibir o workspace como **Aroli**. Se a sua pasta de checkout ainda se chama `umbra`, pode renomeá-la para `aroli`, o Git acompanha o conteúdo, sem efeito no histórico.
 
 - [Guia de identidade](DESIGN.md): símbolo Encaixe, cores, tipografia e aplicações.
 - [Assets e reprodução](branding/aroli/README.md): mestres SVG, exports e comandos.
@@ -47,7 +47,7 @@ Abra [Aroli.code-workspace](Aroli.code-workspace) para exibir o workspace como *
 
 A migração está concluída: identidade, nomes públicos, repositório, pastas e IDs de extensão são Aroli. A paleta permanece; Dark e Black são os nomes das variantes.
 
-Os IDs de VS Code (`Aroli Dark`/`Aroli Black`), Zed (`aroli-themes`) e JetBrains (`aroli.jetbrains.theme`) mudaram — selecione os temas de novo após atualizar. As pastas Chrome agora são `aroli-dark`/`aroli-black`; recarregue as instalações unpacked. O repositório é [getaroli/aroli](https://github.com/getaroli/aroli), com redirecionamento dos endereços antigos. Histórico em [docs/migrations/2026-09-20-aroli.md](docs/migrations/2026-09-20-aroli.md).
+Os IDs de VS Code (`Aroli Dark`/`Aroli Black`), Zed (`aroli-themes`) e JetBrains (`aroli.jetbrains.theme`) mudaram. Selecione os temas de novo após atualizar. As pastas Chrome agora são `aroli-dark`/`aroli-black`; recarregue as instalações unpacked. O repositório é [getaroli/aroli](https://github.com/getaroli/aroli), com redirecionamento dos endereços antigos. Histórico em [docs/migrations/2026-09-20-aroli.md](docs/migrations/2026-09-20-aroli.md).
 
 ## Licença
 

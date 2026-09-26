@@ -1,6 +1,6 @@
 # Aroli para Chrome
 
-Tema dark charcoal para o Chrome, alinhado ao Aroli do VS Code e do Zed. Superfícies escuras e consistentes, texto Bone e um único acento sage-blue em links da New Tab — sem imagens chamativas no frame.
+Tema dark charcoal para o Chrome, alinhado ao Aroli do VS Code e do Zed. Superfícies escuras e consistentes, texto Bone e um único acento sage-blue em links da New Tab, sem imagens chamativas no frame.
 
 Variante Black disponível em [`../aroli-black/`](../aroli-black/): mesma linguagem, com omnibox e New Tab em Ink `#050505`.
 
@@ -111,7 +111,7 @@ segue o próprio tema escuro).
 
 ## Limitações conhecidas
 
-- O Chrome não permite estilizar o conteúdo das páginas, DevTools ou diálogos internos — só frame, toolbar, abas, omnibox e NTP;
+- O Chrome não permite estilizar o conteúdo das páginas, DevTools ou diálogos internos, só frame, toolbar, abas, omnibox e NTP;
 - `ntp_header` tem efeito limitado em versões recentes (a NTP usa o `ntp_background` da imagem);
 - sem imagem no frame: degradê ou foto no topo quebraria a regra de campo escuro dominante.
 

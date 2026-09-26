@@ -1,4 +1,4 @@
-# Aroli — protótipo web
+# Aroli: protótipo web
 
 Landing em Next.js, React, GSAP/ScrollTrigger e Lenis. Briefing: [LANDING-PAGE.md](../LANDING-PAGE.md).
 

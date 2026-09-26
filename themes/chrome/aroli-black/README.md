@@ -1,6 +1,6 @@
 # Aroli Black para Chrome
 
-Variante Black do Aroli para Chrome. Mesma linguagem da variante padrão ([`../aroli-dark/`](../aroli-dark/)), com omnibox, frame e New Tab em Ink `#050505` e toolbar em Charcoal `#101111` — espelha a relação editor/painéis do Aroli Black no VS Code.
+Variante Black do Aroli para Chrome. Mesma linguagem da variante padrão ([`../aroli-dark/`](../aroli-dark/)), com omnibox, frame e New Tab em Ink `#050505` e toolbar em Charcoal `#101111`, espelha a relação editor/painéis do Aroli Black no VS Code.
 
 ## Paleta (Ink)
 
@@ -59,7 +59,7 @@ com o número correspondente.
 ## Limitações conhecidas
 
 - Mesmas da variante padrão: só frame, toolbar, abas, omnibox e NTP são estilizáveis;
-- Ink puro pode reduzir a separação entre frame e área de conteúdo em monitores com preto esmagado — prefira o Aroli padrão nesse caso;
+- Ink puro pode reduzir a separação entre frame e área de conteúdo em monitores com preto esmagado, prefira o Aroli padrão nesse caso;
 - “Blocked by the administrator” ao carregar: veja a seção de solução de problemas no [`../aroli-dark/README.md`](../aroli-dark/README.md#blocked-by-the-administrator-ao-carregar-sem-compactação).
 
 ---
