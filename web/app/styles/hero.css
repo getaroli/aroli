@@ -72,39 +72,10 @@
   border-top: 1px solid #252727;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-bg {
-    animation: aroli-background-breathe 16s ease-in-out infinite;
-    transform-origin: 68% 50%;
-  }
-  .encaixe-plane--upper {
-    animation: aroli-upper-drift 14s ease-in-out infinite;
-  }
-  .encaixe-plane--lower {
-    animation: aroli-lower-drift 19s ease-in-out infinite;
-  }
-  @keyframes aroli-background-breathe {
-    0%, 100% {
-      transform: scale(1) translate3d(0, 0, 0);
-    }
-    50% {
-      transform: scale(1.045) translate3d(-1.4%, 1.2%, 0);
-    }
-  }
-  @keyframes aroli-upper-drift {
-    0%, 100% {
-      transform: translate3d(0, 0, 0) rotate(24deg);
-    }
-    50% {
-      transform: translate3d(-3.5%, 2.5%, 0) rotate(28deg) scale(1.025);
-    }
-  }
-  @keyframes aroli-lower-drift {
-    0%, 100% {
-      transform: translate3d(0, 0, 0) rotate(24deg);
-    }
-    50% {
-      transform: translate3d(3%, -2%, 0) rotate(20deg) scale(1.03);
-    }
+  .encaixe-plane--upper { animation: aroli-settle 280ms var(--ease-brand) both; }
+  @keyframes aroli-settle {
+    from { transform: translate(12px, -8px) rotate(24deg); }
+    to { transform: translate(0, 0) rotate(24deg); }
   }
 }
 .landing-heading .cta {
@@ -121,6 +92,36 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-8);
+}
+.hero-actions .cta {
+  margin-top: 0;
+}
+.hero-source {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid #3b4242;
+  border-radius: var(--radius-md);
+  color: var(--bone);
+  font-size: 14px;
+  transition: border-color var(--duration-fast) var(--ease-brand), background-color var(--duration-fast) var(--ease-brand);
+}
+.hero-source:hover {
+  border-color: var(--bone);
+  background: #101111;
+}
+.hero-source span {
+  display: inline-flex;
 }
 .landing-heading .cta span {
   margin-left: 10px;

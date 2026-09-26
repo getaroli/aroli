@@ -8,8 +8,9 @@ export function MoreSection() {
       id="mais"
       aria-labelledby="more-title"
     >
-      <p className="eyebrow">TAMBÉM FAZ PARTE</p>
-      <h2 id="more-title">Complete o ambiente.</h2>
+      <p className="eyebrow">04 / Seu ambiente</p>
+      <h2 id="more-title">Leve para suas ferramentas.</h2>
+      <p className="more-intro">Comece por uma peça. Cada guia mostra como instalar na sua ferramenta.</p>
       <div className="more-list">
         {THEMES.map((item) => (
           <a

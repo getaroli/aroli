@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CursorLab } from "./CursorLab";
 import { FontLab } from "./FontLab";
+import { PointerBridge } from "./PointerBridge";
 import { preloadAroliCursors } from "../aroli-cursor";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -50,36 +51,12 @@ export function ExperienceSections({
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        root.current
-          ?.querySelectorAll<HTMLElement>(".story-bridge")
-          .forEach((bridge) => {
-            const timeline = gsap.timeline({
-              scrollTrigger: {
-                trigger: bridge,
-                start: "top 85%",
-                end: "bottom 45%",
-                scrub: 0.4,
-              },
-            });
-            timeline
-              .fromTo(
-                bridge.querySelector(".story-thread"),
-                { scaleY: 0 },
-                {
-                  scaleY: 1,
-                  transformOrigin: "top",
-                  ease: "none",
-                  duration: 1,
-                },
-                0,
-              )
-              .fromTo(
-                bridge.querySelector(".story-word"),
-                { opacity: 0.2, y: 24 },
-                { opacity: 1, y: 0, ease: "none", duration: 0.6 },
-                0.25,
-              );
+        root.current?.querySelectorAll<HTMLElement>(".story-bridge--type").forEach((bridge) => {
+          gsap.from(bridge.querySelector(".bridge-object"), {
+            y: 32, autoAlpha: 0, duration: 0.6, ease: "power2.out",
+            scrollTrigger: { trigger: bridge, start: "top 80%", once: true },
           });
+        });
         root.current
           ?.querySelectorAll<HTMLElement>(".experience-section")
           .forEach((section) => {
@@ -116,35 +93,14 @@ export function ExperienceSections({
   );
   return (
     <div ref={root} className="experience-story">
-      <div className="story-bridge">
-        <div className="story-thread" aria-hidden="true" />
-        <p className="story-word">
-          Você já viu o ambiente.
-          <br />
-          <span>Agora, toque a ideia.</span>
-        </p>
-      </div>
+      <PointerBridge />
       <CursorLab mode={mode} onMode={onMode} />
-      <div className="story-bridge story-bridge--type">
-        <div className="story-thread" aria-hidden="true" />
-        <p className="story-word">
-          O gesto encontra uma linha.
-          <br />
-          <span>A linha encontra sua voz.</span>
-        </p>
-        <span className="story-caret" aria-hidden="true">
-          I
-        </span>
+      <div className="story-bridge story-bridge--type" aria-hidden="true">
+        <div className="bridge-object mono-specimen"><span>Aa</span><span className="specimen-caret" /></div>
+        <p className="bridge-caption">Do gesto para a primeira linha.</p>
       </div>
       <FontLab />
-      <div className="story-outro">
-        <p>
-          Do gesto à palavra.
-          <br />
-          Agora, leve esse ambiente com você.
-        </p>
-        <a href="#mais">Escolha por onde começar ↓</a>
-      </div>
+
     </div>
   );
 }

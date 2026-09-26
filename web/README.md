@@ -1,6 +1,6 @@
 # Aroli: protótipo web
 
-Landing em Next.js, React, GSAP/ScrollTrigger e Lenis. Briefing: [LANDING-PAGE.md](../LANDING-PAGE.md).
+Landing em Next.js, React e GSAP/ScrollTrigger, com rolagem nativa. Briefing: [LANDING-PAGE.md](../LANDING-PAGE.md).
 
 ## Executar
 
@@ -20,7 +20,14 @@ bun run typecheck
 
 ## Escopo
 
-Três seções semânticas compartilham uma cena fixada pelo ScrollTrigger. Uma timeline com os momentos `atmosfera`, `continuidade` e `integracoes` reduz o Zed, acomoda o Kitty e organiza a composição final. O conteúdo explica o projeto, sua intenção e as integrações disponíveis. Breakpoints recriam a sequência para desktop e mobile. Os links abrem os materiais do repositório.
+A narrativa conecta temas, gestos e tipografia. Em desktop (mínimo 761 × 600,
+movimento permitido), uma cena sticky de 420svh abre o notebook e apresenta VS Code,
+Zed e Kitty com pausas de leitura. Controles permitem rever cada integração. Mobile,
+janelas baixas, movimento reduzido e ausência de JavaScript usam capturas em sequência
+vertical. A composição linear é a base; GSAP habilita a cena e reverte ao mudar as
+condições. CTAs são links nativos com navegação aprimorada no desktop.
+
+Direção e evidências: [dossiê](design/brand-dossier.md).
 
 Editor e terminal usam capturas reais da geração anterior, mantidas junto dos temas e copiadas para `public/examples/`. Documentam a paleta preservada, não uma instalação nova de Aroli. As imagens são servidas por `next/image`. A interface usa Aroli Sans local via `next/font/local`, com quatro pesos reais (400, 500, 600 e 700). `setup:fonts` copia os WOFF2 versionados de `../fonts/aroli-sans/dist/` para `app/fonts/`. O build não baixa fontes nem exige ferramentas tipográficas. Consulte o [guia da fonte](../fonts/aroli-sans/README.md) para reconstruir os desenhos autorais.
 
@@ -28,7 +35,7 @@ Cursor circular com `mix-blend-mode: difference` para inverter o que está atrá
 
 Favicon Encaixe em `app/icon.svg`, avatar em `public/aroli-avatar-512.png`, assinatura em `public/aroli-lockup.svg`. SEO e JSON-LD usam Aroli. A hero usa dois planos curvos em CSS com acomodação de 280 ms e estado estático para movimento reduzido. Os componentes antigos SlicedWaves permanecem disponíveis no código, mas não são montados na página. Canonical e imagem social absoluta dependem da URL de publicação, ainda indefinida.
 
-Depois do notebook, a história continua em duas seções interativas: **o ambiente responde** (cursor) e **o ambiente ganha voz** (fonte). Transições GSAP ligadas ao scroll revelam o fio visual e os títulos; os laboratórios ficam no fluxo normal, sem pin ou bloqueio de rolagem. Movimento reduzido apresenta tudo sem as transições. A limpeza de GSAP, ticker e Lenis ocorre ao desmontar ou mudar a preferência de movimento.
+Depois do notebook, a história continua em duas seções interativas: **o ambiente responde** (cursor) e **o ambiente ganha voz** (fonte). Um cursor original sobre uma seleção visual e um espécime Aa da Mono conectam os capítulos. Transições GSAP na chegada revelam as composições e os títulos; os laboratórios ficam no fluxo normal, sem pin ou bloqueio de rolagem. Movimento reduzido apresenta tudo sem as transições. A limpeza dos contextos GSAP ocorre ao desmontar ou mudar a preferência de movimento.
 
 ### Laboratório do cursor
 
@@ -54,7 +61,7 @@ Validação: `bun run typecheck`, `bun run test`, `bun run build`. Revisar no na
 
 ## Tokens
 
-Sem Tailwind por decisão: os tokens vivem no `:root` de `app/styles/base.css` e o CSS segue dividido por responsabilidade (`hero.css`, `notebook.css`, `sections.css`, `cursor.css`).
+Sem Tailwind por decisão: os tokens vivem no `:root` de `app/styles/base.css` e o CSS segue dividido por responsabilidade (`hero.css`, `notebook.css`, `sections.css`, `cursor.css`). `story.css` define a composição linear e a melhoria cinematográfica; `experience.css` mantém os laboratórios.
 
 - Cores: `--ink`, `--bone`, `--muted`, `--line`.
 - Espaçamento (`--space-*`, múltiplos de 4px): 1=4px, 2=8px, 3=12px, 4=16px, 5=20px, 6=24px, 8=32px, 10=40px.

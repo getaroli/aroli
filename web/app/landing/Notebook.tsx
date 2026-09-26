@@ -45,6 +45,7 @@ export function Notebook() {
             />
             <Image
               className="capture-zed"
+              loading="eager"
               src="/examples/zed.png"
               alt="Tema Aroli no Zed, na tela do notebook"
               fill
@@ -52,6 +53,7 @@ export function Notebook() {
             />
             <Image
               className="capture-kitty"
+              loading="eager"
               src="/examples/kitty.png"
               alt="Tema Aroli no Kitty, na tela do notebook"
               fill

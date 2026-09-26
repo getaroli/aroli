@@ -3,9 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
-import Lenis from "lenis";
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 import { MotionCursor } from "../MotionCursor";
 import { HeroHeading } from "./HeroHeading";
 import { MoreSection } from "./MoreSection";
@@ -14,279 +12,81 @@ import { NotebookApps } from "./NotebookApps";
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
 import { ExperienceSections } from "./ExperienceSections";
+import { NOTEBOOK_APPS } from "./content";
 
-gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+const STOPS = [1.35, 2.25, 3.15];
 
 export function LandingPage() {
   const root = useRef<HTMLDivElement>(null);
-  const lenisRef = useRef<Lenis | null>(null);
+  const scene = useRef<gsap.core.Timeline | null>(null);
+  const [activeApp, setActiveApp] = useState(0);
   const [cursorMode, setCursorMode] = useState<"circle" | "aroli">("circle");
 
-  // CTA leva ao momento do Zed na sequência (não pula os temas para #mais).
-  const goToThemes = (event: MouseEvent<HTMLButtonElement>) => {
-    const lenis = lenisRef.current;
-    const runway = root.current?.querySelector<HTMLElement>(".landing-runway");
-    if (!runway) return;
-    if (!lenis) {
-      document.getElementById("mais")?.scrollIntoView({ behavior: "instant" });
-      return;
+  const selectApp = (index: number) => {
+    const timeline = scene.current;
+    const trigger = timeline?.scrollTrigger;
+    if (timeline && trigger) {
+      // ScrollTrigger alone owns the playhead, including navigation by buttons.
+      const progress = STOPS[index] / timeline.duration();
+      window.scrollTo({ top: trigger.start + (trigger.end - trigger.start) * progress, behavior: "smooth" });
+    } else {
+      document.getElementById(`theme-${NOTEBOOK_APPS[index].id}`)?.scrollIntoView({ behavior: "instant" });
     }
+  };
+  const goToThemes = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    const start = runway.offsetTop;
-    const end = start + runway.offsetHeight - window.innerHeight + 160;
-    lenis.scrollTo(start + (end - start) * 0.62, { duration: 1.8 });
+    selectApp(0);
+    root.current?.querySelector<HTMLElement>(scene.current ? ".scene-nav button" : "#theme-vscode a")?.focus({ preventScroll: true });
   };
 
-  useEffect(() => {
-    root.current?.classList.add("landing-ready");
-    // Entrada dura ~1.15s (delay .25s + .9s); depois o scrub controla a opacidade.
-    const settled = window.setTimeout(
-      () => root.current?.classList.add("landing-settled"),
-      1400,
-    );
-    return () => window.clearTimeout(settled);
-  }, []);
-
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const lenis = new Lenis({ anchors: true, lerp: 0.045 });
-        lenisRef.current = lenis;
-        const tick = (time: number) => lenis.raf(time * 1000);
-        lenis.on("scroll", ScrollTrigger.update);
-        gsap.ticker.add(tick);
-
-        gsap.utils
-          .toArray<HTMLElement>(
-            ".landing-heading h1, .landing-heading p",
-            root.current!,
-          )
-          .forEach((element) => {
-            SplitText.create(element, {
-              type: "lines",
-              mask: "lines",
-              autoSplit: true,
-              onSplit(split) {
-                return gsap.from(split.lines, {
-                  yPercent: 35,
-                  opacity: 0,
-                  duration: 1.1,
-                  stagger: 0.09,
-                  ease: "power2.out",
-                  scrollTrigger: {
-                    trigger: element,
-                    start: "top 95%",
-                    once: true,
-                  },
-                });
-              },
-            });
-          });
-
-        const vscodeText = SplitText.create(".app-vscode .app-reveal", {
-          type: "words",
-          mask: "words",
-        });
-        const zedText = SplitText.create(".app-zed .app-reveal", {
-          type: "words",
-          mask: "words",
-        });
-        const kittyText = SplitText.create(".app-kitty .app-reveal", {
-          type: "words",
-          mask: "words",
-        });
-
-        // Textos disparam por marco (in/out com duração própria), não acompanham o scrub.
-        gsap.set(vscodeText.words, { yPercent: 100 });
-        gsap.set(zedText.words, { yPercent: 100 });
-        gsap.set(kittyText.words, { yPercent: 100 });
-        gsap.set(".app-vscode, .app-kitty", { autoAlpha: 0 });
-
-        const firstIntro = gsap
-          .timeline({ paused: true })
-          .fromTo(
-            ".app-vscode",
-            { autoAlpha: 0 },
-            { autoAlpha: 1, duration: 0.35, ease: "power2.out" },
-          )
-          .to(
-            vscodeText.words,
-            { yPercent: 0, duration: 0.6, stagger: 0.05, ease: "power3.out" },
-            "<0.05",
-          );
-
-        const swap1 = gsap
-          .timeline({ paused: true })
-          .to(".app-vscode", {
-            autoAlpha: 0,
-            y: -10,
-            duration: 0.35,
-            ease: "power2.in",
-          })
-          .fromTo(
-            ".app-zed",
-            { autoAlpha: 0 },
-            { autoAlpha: 1, duration: 0.35, ease: "power2.out" },
-            "<0.1",
-          )
-          .to(
-            zedText.words,
-            { yPercent: 0, duration: 0.6, stagger: 0.05, ease: "power3.out" },
-            "<0.05",
-          );
-
-        const swap2 = gsap
-          .timeline({ paused: true })
-          .to(".app-zed", {
-            autoAlpha: 0,
-            y: -10,
-            duration: 0.35,
-            ease: "power2.in",
-          })
-          .fromTo(
-            ".app-kitty",
-            { autoAlpha: 0 },
-            { autoAlpha: 1, duration: 0.35, ease: "power2.out" },
-            "<0.1",
-          )
-          .to(
-            kittyText.words,
-            { yPercent: 0, duration: 0.65, stagger: 0.05, ease: "power3.out" },
-            "<0.05",
-          );
-
-        let firstShown = false;
-        let swapped1 = false;
-        let swapped2 = false;
-
-        // A animação termina 160px antes da cena soltar.
-        const tl = gsap.timeline({
-          defaults: { ease: "none" },
-          scrollTrigger: {
-            trigger: ".landing-runway",
-            start: "top top",
-            end: "bottom bottom+=160",
-            scrub: 0.25,
-            invalidateOnRefresh: true,
-            onUpdate(self) {
-              const p = self.progress;
-              // VS Code entra com o notebook por um triz de terminar de abrir.
-              if (p > 0.45 && !firstShown) {
-                firstShown = true;
-                firstIntro.play();
-              } else if (p <= 0.45 && firstShown) {
-                firstShown = false;
-                firstIntro.reverse();
-              }
-              // As trocas disparam no meio para o final de cada fade da screenshot.
-              if (p > 0.6 && !swapped1) {
-                swapped1 = true;
-                swap1.play();
-              } else if (p <= 0.6 && swapped1) {
-                swapped1 = false;
-                swap1.reverse();
-              }
-              if (p > 0.78 && !swapped2) {
-                swapped2 = true;
-                swap2.play();
-              } else if (p <= 0.78 && swapped2) {
-                swapped2 = false;
-                swap2.reverse();
-              }
-            },
-          },
-        });
-
-        tl.addLabel("leitura", 0)
-          .fromTo(
-            ".notebook",
-            { yPercent: 8, scale: 0.76 },
-            { yPercent: -5, scale: 1, duration: 0.55, ease: "power1.inOut" },
-            1.15,
-          )
-          .fromTo(
-            ".notebook-lid",
-            { rotationX: -78 },
-            { rotationX: 0, duration: 0.85, ease: "power1.inOut" },
-            0.3,
-          )
-          .to(".landing-heading", { y: -45, autoAlpha: 0, duration: 0.55 }, 0.3)
-          .to(".hero-bg", { opacity: 0, duration: 0.55 }, 0.3)
-          .fromTo(
-            ".notebook-lid, .notebook-base",
-            { autoAlpha: 0 },
-            { autoAlpha: 1, duration: 0.45 },
-            0.8,
-          )
-          .fromTo(
-            ".notebook-display",
-            { opacity: 0 },
-            { opacity: 1, duration: 0.45 },
-            0.8,
-          )
-          .addLabel("fade1", 1.85)
-          .fromTo(
-            ".capture-vscode",
-            { opacity: 1 },
-            { opacity: 0, duration: 0.5 },
-            1.85,
-          )
-          .fromTo(
-            ".capture-zed",
-            { opacity: 0 },
-            { opacity: 1, duration: 0.5 },
-            1.85,
-          )
-          .addLabel("fade2", 2.55)
-          .fromTo(
-            ".capture-zed",
-            { opacity: 1 },
-            // A saída não deve aplicar opacity: 1 antes de a entrada acontecer.
-            { opacity: 0, duration: 0.5, immediateRender: false },
-            2.55,
-          )
-          .fromTo(
-            ".capture-kitty",
-            { opacity: 0 },
-            { opacity: 1, duration: 0.5 },
-            2.55,
-          )
-          .addLabel("kitty", 3.1)
-          .fromTo(
-            ".landing-meter span",
-            { scaleX: 0 },
-            { scaleX: 1, duration: 3.6 },
-            0,
-          );
-
-        let active = true;
-        document.fonts.ready.then(() => {
-          if (active) ScrollTrigger.refresh();
-        });
-        return () => {
-          active = false;
-          lenisRef.current = null;
-          gsap.ticker.remove(tick);
-          lenis.off("scroll", ScrollTrigger.update);
-          lenis.destroy();
-        };
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 761px) and (min-height: 600px) and (prefers-reduced-motion: no-preference)", () => {
+      const element = root.current!;
+      element.classList.add("story-enhanced");
+      gsap.set(".notebook-app, .scene-nav, .scene-caption", { autoAlpha: 0 });
+      gsap.set(".capture-zed, .capture-kitty", { opacity: 0 });
+      const timeline = gsap.timeline({
+        defaults: { ease: "none" },
+        onUpdate() {
+          const time = this.time();
+          setActiveApp(time >= 2.75 ? 2 : time >= 1.85 ? 1 : 0);
+        },
+        scrollTrigger: {
+          trigger: ".landing-runway", start: "top top", end: "bottom bottom",
+          scrub: 0.2, invalidateOnRefresh: true,
+        },
       });
-      return () => mm.revert();
-    },
-    { scope: root },
-  );
+      scene.current = timeline;
+      timeline
+        .to(".landing-heading, .hero-bg", { autoAlpha: 0, y: -24, duration: 0.35 }, 0.15)
+        .fromTo(".notebook-entrance", { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.65 }, 0.35)
+        .fromTo(".notebook", { scale: 0.88, yPercent: 12 }, { scale: 1, yPercent: 0, duration: 0.65 }, 0.35)
+        .fromTo(".notebook-lid", { rotationX: -68 }, { rotationX: 0, duration: 0.7, ease: "power1.inOut" }, 0.35)
+        .to(".app-vscode, .scene-nav, .scene-caption", { autoAlpha: 1, duration: 0.2 }, 1)
+        .to(".app-vscode", { autoAlpha: 0, duration: 0.25 }, 1.7)
+        .to(".app-zed", { autoAlpha: 1, duration: 0.25 }, 1.85)
+        // Incoming opaque screenshots cover the previous one: no black frame.
+        .to(".capture-zed", { opacity: 1, duration: 0.4 }, 1.7)
+        .to(".app-zed", { autoAlpha: 0, duration: 0.25 }, 2.6)
+        .to(".app-kitty", { autoAlpha: 1, duration: 0.25 }, 2.75)
+        .to(".capture-kitty", { opacity: 1, duration: 0.4 }, 2.6)
+        .to(".landing-meter span", { scaleX: 1, duration: 3.6 }, 0);
+      let alive = true;
+      document.fonts.ready.then(() => { if (alive) ScrollTrigger.refresh(); });
+      return () => {
+        alive = false;
+        scene.current = null;
+        element.classList.remove("story-enhanced");
+      };
+    });
+    return () => mm.revert();
+  }, { scope: root });
 
   return (
-    <div ref={root}>
-      <noscript>
-        <style>
-          {".landing-heading,.notebook-apps,.notebook{opacity:1!important}"}
-        </style>
-      </noscript>
-      <a className="skip-link" href="#mais">
-        Ir para o restante do ambiente
-      </a>
+    <div ref={root} className="brand-story">
+      <a className="skip-link" href="#mais">Ir para os downloads</a>
       <SiteHeader onExplore={goToThemes} />
       <main id="inicio">
         <div className="landing-runway">
@@ -297,10 +97,16 @@ export function LandingPage() {
             </div>
             <HeroHeading onExplore={goToThemes} />
             <NotebookApps />
-            <Notebook />
-            <div className="landing-meter" aria-hidden="true">
-              <span />
-            </div>
+            <div className="notebook-entrance"><Notebook /></div>
+            <nav className="scene-nav" aria-label="Rever uma integração">
+              {NOTEBOOK_APPS.map((app, index) => (
+                <button key={app.id} type="button" aria-pressed={activeApp === index} onClick={() => selectApp(index)}>
+                  <span aria-hidden="true">0{index + 1}</span> {app.name}
+                </button>
+              ))}
+            </nav>
+            <p className="scene-caption">Capturas da geração anterior. A paleta permanece.</p>
+            <div className="landing-meter" aria-hidden="true"><span /></div>
             <div className="stage-fade" aria-hidden="true" />
           </div>
         </div>
