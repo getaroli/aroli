@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check tag matches extension.toml
+        run: |
+          VER=$(python3 -c "import tomllib; print(tomllib.load(open('extension.toml','rb'))['version'])")
+          test "${GITHUB_REF_NAME}" = "v${VER}"
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            themes/aroli.json
+            extension.toml
+          generate_release_notes: true
+          body: |
+            Para publicar no registry oficial do Zed, abra um PR em
+            `zed-industries/extensions` atualizando o submodule desta extensão
+            para esta tag.

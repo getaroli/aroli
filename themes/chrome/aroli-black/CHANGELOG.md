@@ -4,6 +4,10 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 
 # Changelog — Umbra Ink para Chrome
 
+## [0.2.1] — 2026-09-26
+
+Repo próprio `getaroli/aroli-chrome`; `homepage_url` atualizada. Sem mudança de cores.
+
 ## [0.1.0] — 2026-09-14
 
 - Primeira versão da variante Ink.

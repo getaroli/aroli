@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate starship.toml
+        run: |
+          python3 - <<'EOF'
+          import tomllib
+          conf = tomllib.load(open('starship.toml', 'rb'))
+          assert conf.get('palette') == 'aroli', 'palette must be "aroli"'
+          pal = conf['palettes']['aroli']
+          for key in ('ink', 'bone', 'muted', 'lilac', 'rose', 'amber', 'gold', 'slate_blue', 'sage', 'sage_blue'):
+              assert key in pal, f'missing palette key: {key}'
+          print(f"OK: palette aroli with {len(pal)} tokens")
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aroli-starship-toml
+          path: starship.toml
+          if-no-files-found: error

@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/AroliMonoNF-Regular.otf
+            dist/AroliMonoNF-Medium.otf
+            dist/AroliMonoNF-SemiBold.otf
+            dist/LICENSE.txt
+            dist/NERD-FONTS-LICENSE.txt
+          generate_release_notes: true
+          body: |
+            Instale os OTFs no seu sistema e selecione `Aroli Mono NF`.
+            Rebuild completo documentado no README (requer Bun, fonttools,
+            pango-view e o SymbolsNerdFont).

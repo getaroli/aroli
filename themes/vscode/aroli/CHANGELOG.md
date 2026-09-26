@@ -4,6 +4,10 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 
 # Changelog
 
+## [0.4.1] - 2026-09-26
+
+Repo próprio `getaroli/aroli-vscode`; `repository.url` atualizado. Sem mudança de paleta.
+
 ## [0.3.0] - 2026-09-06
 
 - classes e construtores (`new X`, `X()`, `extends X`) agora Lilac em vez de Slate: o Slate apagado dominava trechos com injeção de dependência;

@@ -4,6 +4,10 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 
 # Changelog
 
+## [0.8.1] - 2026-09-26
+
+Repo próprio `getaroli/aroli-zed`; `repository` atualizado. Sem mudança de paleta.
+
 ## [0.7.2] - 2026-09-14
 
 - hover de warn corrigido: `warning` clareado para `#D7BF88` sobre `warning.background` `#211A0E` (9.6:1), `warning.border` para `#8A774E`;

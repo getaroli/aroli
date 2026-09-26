@@ -1,4 +1,4 @@
-import opentype from '../aroli/node_modules/opentype.js';
+import opentype from 'opentype.js';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';

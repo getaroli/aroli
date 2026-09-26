@@ -2,13 +2,13 @@
   "name": "aroli-themes",
   "displayName": "Aroli Themes",
   "description": "Tudo encontra seu lugar. Aroli Dark e Aroli Black para VS Code.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "publisher": "DevEduardo",
   "license": "SEE LICENSE IN LICENSE",
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eduardoaugustolb/aroli"
+    "url": "https://github.com/getaroli/aroli-vscode"
   },
   "engines": {
     "vscode": "^1.80.0"

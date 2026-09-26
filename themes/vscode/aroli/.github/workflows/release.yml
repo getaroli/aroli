@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Check tag matches package.json
+        run: |
+          VER=$(node -p "require('./package.json').version")
+          test "${GITHUB_REF_NAME}" = "v${VER}"
+      - name: Package
+        run: bunx --bun @vscode/vsce package --no-dependencies
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "aroli-themes-*.vsix"
+          generate_release_notes: true
+
+  publish-marketplace:
+    needs: release
+    runs-on: ubuntu-latest
+    if: ${{ secrets.VSCE_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Publish to VS Code Marketplace
+        run: bunx --bun @vscode/vsce publish --no-dependencies -p "${{ secrets.VSCE_TOKEN }}"
+
+  publish-openvsx:
+    needs: release
+    runs-on: ubuntu-latest
+    if: ${{ secrets.OVSX_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Publish to Open VSX
+        run: |
+          bunx --bun @vscode/vsce package --no-dependencies
+          bunx --bun ovsx publish aroli-themes-*.vsix -p "${{ secrets.OVSX_TOKEN }}"

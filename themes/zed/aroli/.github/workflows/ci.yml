@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate theme JSON and extension manifest
+        run: |
+          python3 - <<'EOF'
+          import json, tomllib
+          theme = json.load(open('themes/aroli.json'))
+          assert theme, 'empty theme'
+          meta = tomllib.load(open('extension.toml', 'rb'))
+          for key in ('id', 'name', 'version', 'authors', 'description', 'repository'):
+              assert meta.get(key), f'missing extension.toml key: {key}'
+          print(f"OK: {meta['id']} {meta['version']}")
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aroli-zed-theme
+          path: |
+            themes/aroli.json
+            extension.toml
+          if-no-files-found: error

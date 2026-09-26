@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "name": "Aroli Black",
   "description": "Aroli Black. Tudo encontra seu lugar. Mesma paleta, nova identidade.",
-  "homepage_url": "https://github.com/eduardoaugustolb/aroli",
+  "homepage_url": "https://github.com/getaroli/aroli-chrome",
   "theme": {
     "images": {
       "theme_ntp_background": "images/theme_ntp_background.png"

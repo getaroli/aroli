@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Install font toolchain
+        run: pip install fonttools brotli
+      - name: Build
+        run: bun run build
+      - name: Verify
+        run: bun run verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aroli-sans-dist
+          path: |
+            dist/AroliSans-Regular.otf
+            dist/AroliSans-Regular.woff2
+            dist/AroliSans-Medium.otf
+            dist/AroliSans-Medium.woff2
+            dist/AroliSans-SemiBold.otf
+            dist/AroliSans-SemiBold.woff2
+            dist/AroliSans-Bold.otf
+            dist/AroliSans-Bold.woff2
+          if-no-files-found: error

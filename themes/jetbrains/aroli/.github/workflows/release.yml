@@ -1,0 +1,40 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Check tag matches package.json
+        run: |
+          VER=$(node -p "require('./package.json').version")
+          test "${GITHUB_REF_NAME}" = "v${VER}"
+      - name: Verify and package
+        run: bun run verify && bun run package
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/aroli-jetbrains-theme.zip
+          generate_release_notes: true
+
+  publish-marketplace:
+    needs: release
+    runs-on: ubuntu-latest
+    if: ${{ secrets.JB_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Publish to JetBrains Marketplace
+        run: |
+          bun run package
+          curl --fail-with-body -H "Authorization: Bearer ${{ secrets.JB_TOKEN }}" \
+            -F file=@dist/aroli-jetbrains-theme.zip \
+            https://plugins.jetbrains.com/plugin/uploadPlugin

@@ -45,13 +45,14 @@ Em `chrome://extensions`, clique em **Remover** no cartão Aroli. Isso volta ao 
 
 ### Empacotar para a Chrome Web Store
 
-O `aroli-dark-0.2.0.zip` ao lado do README contém só `manifest.json` e a
+O `aroli-dark-0.2.1.zip` ao lado do README contém só `manifest.json` e a
 imagem da NTP, pronto para upload. O ícone `store/icon-128.png` (gerado de
 `store/icon.svg`, Encaixe em Bone sobre a superfície escura) vai separado, nos
-campos da ficha da loja. Para regenerar o zip após mudar o tema:
+campos da ficha da loja. Para regenerar o zip após mudar o tema, na raiz do
+repo (ou em `themes/chrome`, no monorepo):
 
 ```sh
-bun scripts/package-chrome.ts
+bun package-chrome.ts
 ```
 
 A cada nova versão, suba `version` no `manifest.json` e gere um zip novo

@@ -1,12 +1,12 @@
 import { resolve, join } from "node:path";
 import { existsSync, unlinkSync } from "node:fs";
 
-const root = resolve(import.meta.dir, "..");
+const root = import.meta.dir;
 for (const [folder, product] of [
   ["aroli-dark", "aroli-dark"],
   ["aroli-black", "aroli-black"],
 ]) {
-  const cwd = join(root, "themes/chrome", folder);
+  const cwd = join(root, folder);
   const manifest = await Bun.file(join(cwd, "manifest.json")).json();
   const name = `${product}-${manifest.version}.zip`;
   // Exact generated target, scoped to this variant. Previous releases remain archived.

@@ -1,8 +1,8 @@
 <idea-plugin>
   <id>aroli.jetbrains.theme</id>
   <name>Aroli Themes</name>
-  <version>0.2.0</version>
-  <vendor url="https://github.com/eduardoaugustolb/aroli">Aroli</vendor>
+  <version>0.2.1</version>
+  <vendor url="https://github.com/getaroli/aroli-jetbrains">Aroli</vendor>
   <description><![CDATA[
     <p>Aroli Dark for JetBrains IDEs.</p>
     <p>Quiet surfaces and controlled semantic color for focused work.</p>

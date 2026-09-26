@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate kitty.conf
+        run: |
+          python3 - <<'EOF'
+          import re
+          conf = open('kitty.conf').read()
+          required = ['foreground', 'background', 'cursor', 'selection_background'] + [f'color{i}' for i in range(16)]
+          for key in required:
+              assert re.search(rf'^{key}\s+#', conf, re.M), f'missing key: {key}'
+          for color in re.findall(r'#([0-9A-Fa-f]+)', conf):
+              assert len(color) == 6, f'bad hex: #{color}'
+          print(f'OK: {len(required)} keys, all hex valid')
+          EOF
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aroli-kitty-conf
+          path: kitty.conf
+          if-no-files-found: error

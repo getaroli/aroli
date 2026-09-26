@@ -4,6 +4,10 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 
 # Changelog
 
+## 0.2.1 — 2026-09-26
+
+Repo próprio `getaroli/aroli-jetbrains`; vendor URL atualizada. Sem mudança de paleta.
+
 ## 0.1.3 — 2026-09-16
 
 - corrige a chave de fundo do editor para `TEXT`, mantendo `#101111` igual à UI;

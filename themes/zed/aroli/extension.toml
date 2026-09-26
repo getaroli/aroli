@@ -1,7 +1,7 @@
 id = "aroli-themes"
 name = "Aroli Themes"
-version = "0.8.0"
+version = "0.8.1"
 schema_version = 1
 authors = ["Eduardo Augusto Lima Bueno"]
 description = "Aroli Dark with semantic accents and controlled color"
-repository = "https://github.com/eduardoaugustolb/aroli"
+repository = "https://github.com/getaroli/aroli-zed"

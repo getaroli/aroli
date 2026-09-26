@@ -3,7 +3,7 @@ import { readFileSync, mkdtempSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { spawnSync } from 'node:child_process';
-import opentype from '../aroli/node_modules/opentype.js';
+import opentype from 'opentype.js';
 
 const temp = mkdtempSync(join(tmpdir(), 'aroli-sans-verify-'));
 const required = Array.from({ length: 95 }, (_, i) => String.fromCodePoint(i + 32)).join('') +

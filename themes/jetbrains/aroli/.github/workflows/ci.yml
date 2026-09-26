@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Verify theme sources
+        run: bun run verify
+      - name: Package plugin
+        run: bun run package
+      - name: Check artifact exists
+        run: test -f dist/aroli-jetbrains-theme.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aroli-jetbrains-theme
+          path: dist/aroli-jetbrains-theme.zip
+          if-no-files-found: error

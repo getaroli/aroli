@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Validate committed binaries
+        run: |
+          pip install -r requirements-build.txt
+          for f in dist/AroliMonoNF-Regular.otf dist/AroliMonoNF-Medium.otf dist/AroliMonoNF-SemiBold.otf; do
+            echo "== $f"
+            fonttools ttx -l "$f"
+          done
+          fonttools ttx -l dist/AroliMonoNF-Regular.otf | grep -E 'CFF |GSUB|OS/2|cmap|head|hhea|hmtx|ltag|maxp|name|post'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aroli-mono-otf
+          path: |
+            dist/AroliMonoNF-Regular.otf
+            dist/AroliMonoNF-Medium.otf
+            dist/AroliMonoNF-SemiBold.otf
+          if-no-files-found: error

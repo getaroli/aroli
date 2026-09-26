@@ -1,0 +1,66 @@
+name: Split mirrors
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "themes/vscode/aroli/**"
+      - "themes/zed/aroli/**"
+      - "themes/jetbrains/aroli/**"
+      - "themes/chrome/**"
+      - "themes/kitty/aroli/**"
+      - "themes/starship/aroli/**"
+      - "themes/cursor/aroli/**"
+      - "fonts/aroli/**"
+      - "fonts/aroli-sans/**"
+      - "wallpapers/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  split:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - prefix: themes/vscode/aroli
+            repo: aroli-vscode
+          - prefix: themes/zed/aroli
+            repo: aroli-zed
+          - prefix: themes/jetbrains/aroli
+            repo: aroli-jetbrains
+          - prefix: themes/chrome
+            repo: aroli-chrome
+          - prefix: themes/kitty/aroli
+            repo: aroli-kitty
+          - prefix: themes/starship/aroli
+            repo: aroli-starship
+          - prefix: themes/cursor/aroli
+            repo: aroli-pointer
+          - prefix: fonts/aroli
+            repo: aroli-mono
+          - prefix: fonts/aroli-sans
+            repo: aroli-sans
+          - prefix: wallpapers
+            repo: aroli-backdrops
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Skip unchanged modules
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- "${{ matrix.prefix }}" | grep -q .; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Push subtree to split repo
+        if: steps.changed.outputs.run == 'true'
+        env:
+          SPLIT_PUSH_TOKEN: ${{ secrets.SPLIT_PUSH_TOKEN }}
+        run: bash .github/scripts/split-push.sh "${{ matrix.prefix }}" "${{ matrix.repo }}"

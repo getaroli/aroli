@@ -1,0 +1,13 @@
+{
+  "name": "aroli-sans-font",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun build.ts",
+    "verify": "bun verify.ts",
+    "proof": "bun proof.ts"
+  },
+  "dependencies": {
+    "opentype.js": "^1.3.4"
+  }
+}

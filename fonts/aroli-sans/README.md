@@ -10,19 +10,16 @@ Regular 400, Medium 500, SemiBold 600 e Bold 700 são arquivos reais em OTF e WO
 
 ## Construir
 
-Na raiz do repositório, com Bun, fonttools com Brotli e Pango instalados:
+Na raiz do repo (`fonts/aroli-sans`, no monorepo), com Bun, fonttools com Brotli e Pango instalados:
 
 ```sh
-cd fonts/aroli && bun install --frozen-lockfile
-cd ../..
-bun fonts/aroli-sans/build.ts
-bun fonts/aroli-sans/verify.ts
-bun fonts/aroli-sans/proof.ts
-cd web && bun run setup:fonts
-cd .. && bun branding/aroli/build.ts
+bun install
+bun run build
+bun run verify
+bun run proof
 ```
 
-O gerador reutiliza a dependência opentype.js já instalada no módulo Mono; não lê contornos de nenhuma fonte externa. As curvas cúbicas autorais são amostradas e expandidas em contornos fechados. `fonttools` adiciona GPOS e comprime WOFF2. Os binários em `dist/` são versionados: builds do site apenas os copiam, sem ferramentas tipográficas ou download de fontes.
+O gerador usa a dependência opentype.js declarada no `package.json` local; não lê contornos de nenhuma fonte externa. As curvas cúbicas autorais são amostradas e expandidas em contornos fechados. `fonttools` adiciona GPOS e comprime WOFF2. Os binários em `dist/` são versionados: builds do site apenas os copiam, sem ferramentas tipográficas ou download de fontes.
 
 ![Prova dos quatro pesos](dist/specimen.png)
 

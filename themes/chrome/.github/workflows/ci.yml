@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: oven-sh/setup-bun@v2
+      - name: Package both variants
+        run: bun package-chrome.ts
+      - name: Check zips match manifest versions
+        run: |
+          test -f "aroli-dark/aroli-dark-$(node -p "require('./aroli-dark/manifest.json').version").zip"
+          test -f "aroli-black/aroli-black-$(node -p "require('./aroli-black/manifest.json').version").zip"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aroli-chrome-zips
+          path: |
+            aroli-dark/aroli-dark-*.zip
+            aroli-black/aroli-black-*.zip
+          if-no-files-found: error
