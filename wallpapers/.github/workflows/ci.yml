@@ -26,12 +26,11 @@ jobs:
               for f in files:
                   p = os.path.join(root, f)
                   with open(p, 'rb') as fh:
-                      head = fh.read(8)
+                      head = fh.read(4104)
                   if f.endswith('.png'):
                       assert head[:8] == b'\x89PNG\r\n\x1a\n', f'bad PNG: {p}'
                   elif f.endswith('.svg'):
-                      rest = fh.read(4096)
-                      assert b'<svg' in head + rest, f'bad SVG: {p}'
+                      assert b'<svg' in head, f'bad SVG: {p}'
                   elif f.endswith('.mp4'):
                       assert head[4:8] == b'ftyp', f'bad MP4: {p}'
           print('OK: encaixe set present, all PNG/SVG/MP4 magic bytes valid')
