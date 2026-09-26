@@ -28,13 +28,17 @@ jobs:
   publish-marketplace:
     needs: release
     runs-on: ubuntu-latest
+    env:
+      HAS_JB_TOKEN: ${{ secrets.JB_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v6
       - uses: oven-sh/setup-bun@v2
       - name: Publish to JetBrains Marketplace
-        if: ${{ secrets.JB_TOKEN != '' }}
+        if: env.HAS_JB_TOKEN == 'true'
+        env:
+          JB_TOKEN: ${{ secrets.JB_TOKEN }}
         run: |
           bun run package
-          curl --fail-with-body -H "Authorization: Bearer ${{ secrets.JB_TOKEN }}" \
+          curl --fail-with-body -H "Authorization: Bearer $JB_TOKEN" \
             -F file=@dist/aroli-jetbrains-theme.zip \
             https://plugins.jetbrains.com/plugin/uploadPlugin
