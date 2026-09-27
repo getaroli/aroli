@@ -283,6 +283,7 @@ for (const shape of [BODY, PIECE]) {
 add('aroliEncaixe',0x100000,mark);
 // Programming ligatures retain the width of their source sequence.
 const ligatures: [string,string,Stroke[]][] = [
+  ['===','tripleEqual',[[[145,560],[1655,560]],[[145,350],[1655,350]],[[145,140],[1655,140]]]],
   ['->','arrowRight',[[[135,350],[1040,350]],[[800,565],[1040,350],[800,135]]]],
   ['=>','doubleArrowRight',[[[130,455],[810,455]],[[130,245],[810,245]],[[780,565],[1050,350],[780,135]]]],
   ['!=','notEqual',[[[730,620],[470,80]],[[145,455],[1055,455]],[[145,245],[1055,245]]]],

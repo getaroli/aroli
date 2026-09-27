@@ -16,7 +16,7 @@ bun install
 bun run build:all
 ```
 
-Saída: [`dist/AroliMonoNF-Regular.otf`](dist/AroliMonoNF-Regular.otf). Há também pesos de leitura para interfaces: [`Medium`](dist/AroliMonoNF-Medium.otf) e [`SemiBold`](dist/AroliMonoNF-SemiBold.otf), gerados pelo mesmo desenho com contorno mais robusto. O arquivo `dist/*-base.otf` é intermediário. Ative *contextual alternates* (`calt`) no editor para `->`, `=>`, `!=`, `<=`, `>=` e `==`. O símbolo Aroli fica em U+100000. Veja também o [espécime SVG](dist/specimen.svg).
+Saída: [`dist/AroliMonoNF-Regular.otf`](dist/AroliMonoNF-Regular.otf). Há também pesos de leitura para interfaces: [`Medium`](dist/AroliMonoNF-Medium.otf) e [`SemiBold`](dist/AroliMonoNF-SemiBold.otf), gerados pelo mesmo desenho com contorno mais robusto. O arquivo `dist/*-base.otf` é intermediário. Ative *contextual alternates* (`calt`) no editor para `->`, `=>`, `!=`, `<=`, `>=`, `==` e `===`. O símbolo Aroli fica em U+100000. Veja também o [espécime SVG](dist/specimen.svg).
 
 As provas abaixo são geradas pelo próprio build (`proof.ts`, Pango/HarfBuzz sobre o OTF final) e atualizadas a cada `bun run build:all`.
 
@@ -24,7 +24,7 @@ As provas abaixo são geradas pelo próprio build (`proof.ts`, Pango/HarfBuzz so
 ![Prova do peso Medium](dist/specimen-Medium.png)
 ![Prova do peso SemiBold](dist/specimen-SemiBold.png)
 
-## Qualidade e validação: 0.905
+## Qualidade e validação: 0.906
 
 A prova visual é produzida para cada peso com Pango/HarfBuzz a partir do respectivo OTF final, em um ambiente Fontconfig isolado sem fontes de fallback. Inclui os 37 caracteres acentuados, comparação `calt=0`/`calt=1`, distinção `i/I/l/1`, pontuação e código em 10, 12, 14, 15, 16 e 24 px. É obrigatório abrir e inspecionar os PNGs após alterações; a geração do arquivo por si só não constitui aprovação visual.
 
