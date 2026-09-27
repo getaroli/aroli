@@ -2,6 +2,7 @@ languagesystem DFLT dflt;
 languagesystem latn dflt;
 
 feature calt {
+  sub uni003D uni003D uni003D by tripleEqual;
   sub uni002D uni003E by arrowRight;
   sub uni003D uni003E by doubleArrowRight;
   sub uni0021 uni003D by notEqual;

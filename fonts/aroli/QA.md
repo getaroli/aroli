@@ -1,5 +1,14 @@
 # Validação 0.9 - 2026-09-23
 
+## Correção 0.906 - 2026-09-27
+
+Ligadura `===` adicionada com três barras e avanço de três células. O build
+dos três pesos passou nas verificações de contornos, hinting, cobertura,
+larguras e GSUB: `tripleEqual` precede `doubleEqual` nas regras de igualdade.
+Cada OTF contém 10.758 glifos e sete ligaduras. As três provas PNG foram
+abertas e inspecionadas: `calt=0` mantém os caracteres separados e `calt=1`
+mostra três barras contínuas em 12, 14, 16 e 24 px. Não houve teste na IDE.
+
 ## Correção 0.905
 
 Em 15 px, `:` usava círculos de raio 48 contra mínimo 70 em `.`; cada ponto

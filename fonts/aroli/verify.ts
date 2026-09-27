@@ -22,6 +22,17 @@ for(const name of ['arrowRight','doubleArrowRight','notEqual','lessEqual','great
   assert.equal(glyphs.find(g=>g.name===name)?.advanceWidth,width*2,`Ligature width: ${name}`);
 }
 assert(font.tables.gsub.features.some(f=>f.tag==='calt'),'Missing contextual alternates');
+assert.equal(glyphs.find(g=>g.name==='tripleEqual')?.advanceWidth,width*3,'Ligature width: tripleEqual');
+const equalIndex=font.charToGlyphIndex('=');
+const equalRules=font.tables.gsub.lookups.flatMap(lookup=>lookup.subtables.flatMap(table=>
+  table.ligatureSets?.[table.coverage.glyphs.indexOf(equalIndex)] || []));
+assert.deepEqual(equalRules.filter(rule=>rule.components.every(index=>index===equalIndex)).map(rule=>({
+  name:font.glyphs.get(rule.ligGlyph).name,
+  components:rule.components,
+})),[
+  {name:'tripleEqual',components:[equalIndex,equalIndex]},
+  {name:'doubleEqual',components:[equalIndex]},
+],'GSUB must match === before ==');
 const style=process.argv[3] || 'Regular';
 assert.equal(font.tables.os2.usWeightClass,{Regular:400,Medium:500,SemiBold:600}[style]);
 assert.equal(font.tables.post.isFixedPitch,1);

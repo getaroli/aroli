@@ -4,6 +4,12 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 
 # Changelog
 
+## 0.906 - 2026-09-27
+
+- Adicionada ligadura de `===` nos três pesos, com três barras e avanço de três células.
+- Substituição de `===` precede `==` no GSUB; verificação cobre largura e prioridade.
+- Provas incluem `===` com `calt=0` e `calt=1` em 12, 14, 16 e 24 px.
+
 ## 0.905 - 2026-09-24
 
 - Unificada a família óptica de pontos: `.`, `,`, `:`, `;`, `!` e `?` usam o mesmo diâmetro mínimo, preservando contraste em 14–16 px.
