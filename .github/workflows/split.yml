@@ -49,6 +49,7 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Skip unchanged modules
         id: changed
         run: |
