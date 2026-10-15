@@ -26,6 +26,7 @@
 | Zed | Dark | [aroli-zed](https://github.com/getaroli/aroli-zed) | [Instalação](themes/zed/aroli/README.md) |
 | JetBrains | Dark | [aroli-jetbrains](https://github.com/getaroli/aroli-jetbrains) | [Instalação](themes/jetbrains/aroli/README.md) |
 | Chrome | Dark / Black | [aroli-chrome](https://github.com/getaroli/aroli-chrome) | [Dark](themes/chrome/aroli-dark/README.md) · [Black](themes/chrome/aroli-black/README.md) |
+| Firefox | Dark / Black | Neste repositório | [Instalação e pacotes](themes/firefox/README.md) |
 | Kitty | Dark | [aroli-kitty](https://github.com/getaroli/aroli-kitty) | [Instalação](themes/kitty/aroli/README.md) |
 | Starship | Prompt | [aroli-starship](https://github.com/getaroli/aroli-starship) | [Instalação](themes/starship/aroli/README.md) |
 

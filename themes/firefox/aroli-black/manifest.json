@@ -1,0 +1,59 @@
+{
+  "manifest_version": 2,
+  "name": "Aroli Black",
+  "version": "0.1.0",
+  "description": "Tudo encontra seu lugar. Superfícies escuras, texto Bone e acentos Sage Blue.",
+  "author": "Eduardo Augusto Lima Bueno",
+  "homepage_url": "https://github.com/getaroli/aroli",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "aroli-black@getaroli.com",
+      "strict_min_version": "100.0"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#050505",
+      "frame_inactive": "#050505",
+      "tab_background_text": "#858A89",
+      "tab_selected": "#101111",
+      "tab_text": "#C5C7C5",
+      "tab_line": "#9AB7B0",
+      "tab_loading": "#9AB7B0",
+      "toolbar": "#101111",
+      "toolbar_text": "#C5C7C5",
+      "toolbar_field": "#050505",
+      "toolbar_field_text": "#C5C7C5",
+      "toolbar_field_border": "#202424",
+      "toolbar_field_focus": "#101111",
+      "toolbar_field_text_focus": "#C5C7C5",
+      "toolbar_field_border_focus": "#9AB7B0",
+      "toolbar_field_highlight": "#9AB7B0",
+      "toolbar_field_highlight_text": "#101111",
+      "toolbar_top_separator": "#101111",
+      "toolbar_bottom_separator": "#202424",
+      "toolbar_vertical_separator": "#202424",
+      "icons": "#AEB9BC",
+      "icons_attention": "#9AB7B0",
+      "button_background_hover": "#202424",
+      "button_background_active": "#303636",
+      "popup": "#101111",
+      "popup_text": "#C5C7C5",
+      "popup_border": "#303636",
+      "popup_highlight": "#202424",
+      "popup_highlight_text": "#C5C7C5",
+      "sidebar": "#050505",
+      "sidebar_text": "#C5C7C5",
+      "sidebar_border": "#202424",
+      "sidebar_highlight": "#202424",
+      "sidebar_highlight_text": "#C5C7C5",
+      "ntp_background": "#050505",
+      "ntp_text": "#C5C7C5",
+      "ntp_card_background": "#101111"
+    },
+    "properties": {
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}

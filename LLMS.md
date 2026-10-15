@@ -12,6 +12,7 @@ temas, do site ou da identidade sem necessidade.
 | Qualquer tema | `themes/LLMS.md` |
 | Cursor Linux | `themes/cursor/LLMS.md` e, para Aroli, `themes/cursor/aroli/LLMS.md` |
 | Chrome | `themes/chrome/LLMS.md`, depois a variante |
+| Firefox | `themes/firefox/LLMS.md` |
 | Kitty | `themes/kitty/LLMS.md`, depois `aroli/LLMS.md` |
 | Starship | `themes/starship/LLMS.md`, depois `aroli/LLMS.md` |
 | VS Code | `themes/vscode/LLMS.md`, depois `aroli/LLMS.md` |
