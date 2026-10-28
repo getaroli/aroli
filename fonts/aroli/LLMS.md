@@ -1,6 +1,7 @@
 # Fonte Aroli
 
 Os contornos textuais autorais e o glifo do encaixe são definidos em `build.ts`.
+Os caracteres Unicode de terminal são desenhados em `terminal.ts`.
 As ligaduras ficam em `features.fea`. `dist/*-base.otf` é intermediário.
 
 Depois de editar, rode `bun install` e `bun run build:all`; confira `fonttools ttx -l`

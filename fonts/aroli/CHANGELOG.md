@@ -4,6 +4,12 @@ Nova identidade Encaixe, nomes públicos e documentação Aroli. Paleta preserva
 
 # Changelog
 
+## 0.907 - 2026-10-27
+
+- Adicionados caracteres Unicode usados pelo btop: bordas retas/arredondadas, setas, Enter, medidor, sobrescritos, 256 padrões Braille e blocos de gráficos.
+- Adicionada ligadura `!===` de quatro células, com prioridade sobre `!=`.
+- Verificação cobre cobertura e avanço dos caracteres de terminal e prioridade GSUB; provas incluem o rodapé do btop e `!===` com calt desligado/ligado.
+
 ## 0.906 - 2026-09-27
 
 - Adicionada ligadura de `===` nos três pesos, com três barras e avanço de três células.

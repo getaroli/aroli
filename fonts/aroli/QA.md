@@ -1,5 +1,28 @@
 # Validação 0.9 - 2026-09-23
 
+## Correção 0.907 - 2026-10-27
+
+O conjunto Symbols Nerd Font usado no build não contém as bordas e setas
+Unicode do rodapé do btop. A cobertura agora inclui os caracteres declarados
+em [btop_draw.cpp](https://github.com/aristocratos/btop/blob/main/src/btop_draw.cpp):
+bordas retas/arredondadas, linha pontilhada, setas, Enter, quadrado, sobrescritos,
+256 padrões Braille e blocos dos modos de gráfico. São desenhos autorais em
+`terminal.ts`, com avanço de uma célula; linhas atingem as bordas da célula
+(0/1229, -512/1884), verificadas no binário final.
+
+`!===` tem três barras cortadas e quatro células de avanço. A regra precede
+`!=`; GSUB verifica a ordem de ambas, e as provas comparam calt desligado/ligado
+em 12/14/16/24 px. Não foram adicionadas regras para `!==`.
+
+Validação: `bun install` e `AROLI_FONT_PYTHON=/tmp/aroli-font-tools/bin/python
+bun run build:all` concluídos. Cada peso contém 11.065 glifos, 10.617 símbolos
+Nerd Font e oito ligaduras. União de contornos, hinting, cobertura, larguras,
+limites das linhas, distinção dos 256 padrões Braille e ordem GSUB passaram.
+Tabelas dos três OTFs inspecionadas com `fonttools ttx -l`; regressão raster
+12/14/15/16/24 px e `git diff --check` passaram. Os três PNGs foram abertos e
+inspecionados, incluindo rodapé do btop, gráficos e comparação calt.
+Não houve instalação nem teste no terminal real nesta sessão.
+
 ## Correção 0.906 - 2026-09-27
 
 Ligadura `===` adicionada com três barras e avanço de três células. O build

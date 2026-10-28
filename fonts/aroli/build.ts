@@ -1,4 +1,5 @@
 import opentype from 'opentype.js';
+import { terminalGlyphs } from './terminal';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -265,6 +266,8 @@ for (const [character,[base,accent]] of Object.entries(accents)) {
   if (accent==='cedilla') stroke(path,[[310,0],[345,-95],[260,-145]],48);
   add(`uni${character.codePointAt(0)!.toString(16).padStart(4,'0').toUpperCase()}`,character.codePointAt(0),path);
 }
+terminalGlyphs({ add, P, line, polygon, circle, glyphPath, S, cell, weight });
+
 // Use the production Encaixe master in the existing supplementary PUA slot.
 const mark=P();
 for (const shape of [BODY, PIECE]) {
@@ -283,6 +286,7 @@ for (const shape of [BODY, PIECE]) {
 add('aroliEncaixe',0x100000,mark);
 // Programming ligatures retain the width of their source sequence.
 const ligatures: [string,string,Stroke[]][] = [
+  ['!===','notTripleEqual',[[[1400,680],[1000,20]],[[145,560],[2255,560]],[[145,350],[2255,350]],[[145,140],[2255,140]]]],
   ['===','tripleEqual',[[[145,560],[1655,560]],[[145,350],[1655,350]],[[145,140],[1655,140]]]],
   ['->','arrowRight',[[[135,350],[1040,350]],[[800,565],[1040,350],[800,135]]]],
   ['=>','doubleArrowRight',[[[130,455],[810,455]],[[130,245],[810,245]],[[780,565],[1050,350],[780,135]]]],

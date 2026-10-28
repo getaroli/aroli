@@ -23,6 +23,21 @@ for(const name of ['arrowRight','doubleArrowRight','notEqual','lessEqual','great
 }
 assert(font.tables.gsub.features.some(f=>f.tag==='calt'),'Missing contextual alternates');
 assert.equal(glyphs.find(g=>g.name==='tripleEqual')?.advanceWidth,width*3,'Ligature width: tripleEqual');
+assert.equal(glyphs.find(g=>g.name==='notTripleEqual')?.advanceWidth,width*4,'Ligature width: notTripleEqual');
+const bangIndex=font.charToGlyphIndex('!');
+const bangRules=font.tables.gsub.lookups.flatMap(lookup=>lookup.subtables.flatMap(table=>table.ligatureSets?.[table.coverage.glyphs.indexOf(bangIndex)] || []));
+assert.deepEqual(bangRules.map(rule=>font.glyphs.get(rule.ligGlyph).name),['notTripleEqual','notEqual'],'GSUB must match !=== before !=');
+for(const char of '─│┌┐└┘├┤┬┴┼╭╮╯╰╎↑↓←→↵■▀▄█▌▐▖▗▘▙▚▛▜▝▞▟░▒▓⁰¹²³⁴⁵⁶⁷⁸⁹'+Array.from({length:256},(_,i)=>String.fromCodePoint(0x2800+i)).join('')) {
+  assert.notEqual(font.charToGlyphIndex(char),0,`Missing terminal glyph: ${char}`);
+  assert.equal(font.charToGlyph(char).advanceWidth,width,`Terminal cell width: ${char}`);
+}
+const horizontal=font.charToGlyph('─').getBoundingBox();
+assert.equal(horizontal.x1,0,'Horizontal border must reach left cell edge');
+assert.equal(horizontal.x2,width,'Horizontal border must reach right cell edge');
+const vertical=font.charToGlyph('│').getBoundingBox();
+assert.equal(vertical.y1,-512,'Vertical border must reach cell bottom');
+assert.equal(vertical.y2,1884,'Vertical border must reach cell top');
+assert.equal(new Set(Array.from({length:256},(_,i)=>JSON.stringify(font.charToGlyph(String.fromCodePoint(0x2800+i)).path.commands))).size,256,'Braille patterns must remain distinct');
 const equalIndex=font.charToGlyphIndex('=');
 const equalRules=font.tables.gsub.lookups.flatMap(lookup=>lookup.subtables.flatMap(table=>
   table.ligatureSets?.[table.coverage.glyphs.indexOf(equalIndex)] || []));

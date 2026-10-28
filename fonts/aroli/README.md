@@ -16,7 +16,7 @@ bun install
 bun run build:all
 ```
 
-Saída: [`dist/AroliMonoNF-Regular.otf`](dist/AroliMonoNF-Regular.otf). Há também pesos de leitura para interfaces: [`Medium`](dist/AroliMonoNF-Medium.otf) e [`SemiBold`](dist/AroliMonoNF-SemiBold.otf), gerados pelo mesmo desenho com contorno mais robusto. O arquivo `dist/*-base.otf` é intermediário. Ative *contextual alternates* (`calt`) no editor para `->`, `=>`, `!=`, `<=`, `>=`, `==` e `===`. O símbolo Aroli fica em U+100000. Veja também o [espécime SVG](dist/specimen.svg).
+Saída: [`dist/AroliMonoNF-Regular.otf`](dist/AroliMonoNF-Regular.otf). Há também pesos de leitura para interfaces: [`Medium`](dist/AroliMonoNF-Medium.otf) e [`SemiBold`](dist/AroliMonoNF-SemiBold.otf), gerados pelo mesmo desenho com contorno mais robusto. O arquivo `dist/*-base.otf` é intermediário. Ative *contextual alternates* (`calt`) no editor para `->`, `=>`, `!=`, `<=`, `>=`, `==`, `===` e `!===`. O símbolo Aroli fica em U+100000. Veja também o [espécime SVG](dist/specimen.svg).
 
 As provas abaixo são geradas pelo próprio build (`proof.ts`, Pango/HarfBuzz sobre o OTF final) e atualizadas a cada `bun run build:all`.
 
@@ -24,7 +24,7 @@ As provas abaixo são geradas pelo próprio build (`proof.ts`, Pango/HarfBuzz so
 ![Prova do peso Medium](dist/specimen-Medium.png)
 ![Prova do peso SemiBold](dist/specimen-SemiBold.png)
 
-## Qualidade e validação: 0.906
+## Qualidade e validação: 0.907
 
 A prova visual é produzida para cada peso com Pango/HarfBuzz a partir do respectivo OTF final, em um ambiente Fontconfig isolado sem fontes de fallback. Inclui os 37 caracteres acentuados, comparação `calt=0`/`calt=1`, distinção `i/I/l/1`, pontuação e código em 10, 12, 14, 15, 16 e 24 px. É obrigatório abrir e inspecionar os PNGs após alterações; a geração do arquivo por si só não constitui aprovação visual.
 
@@ -33,6 +33,7 @@ A prova visual é produzida para cada peso com Pango/HarfBuzz a partir do respec
 - `i` com base ampla e margens equilibradas; `I` com barras simétricas; `l` com entrada superior e pé próprio. Altura das minúsculas de 520 unidades em uma célula de 600.
 - Bordas inferiores dos caracteres sem descendentes alinhadas em y=0 na construção, sem escala por glifo; ápices diagonais com overshoot óptico de até 5 unidades dentro do fuzz de hinting. Base em [-17,1] e altura-x em [1064,1082] verificadas no OTF final.
 - As ligaduras preservam a largura total da sequência. Seu suporte visual depende do editor/terminal.
+- Bordas, setas, Enter, quadrado, sobrescritos e gráficos Braille/blocos usados pelo btop têm desenhos autorais em `terminal.ts`, com avanço de uma célula.
 - Os ícones Nerd Font preservam os códigos do conjunto instalado. A cobertura exata depende da versão desse arquivo.
 - A versão 0.9 prepara a fonte para uso como produto. A promoção para 1.0 exige validar no Zed em tela comum e HiDPI; provas Pango não substituem esse teste na IDE.
 

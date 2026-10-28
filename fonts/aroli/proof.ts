@@ -18,9 +18,9 @@ writeFileSync(config,`<?xml version="1.0"?><!DOCTYPE fontconfig SYSTEM "urn:font
 const env={...process.env,FONTCONFIG_FILE:config};
 const escape=(s:string)=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const row=(s:string,size=26,features='calt=1')=>`<span size="${size*1024}" font_features="${features}">${escape(s)}</span>`;
-const operators='->  =>  !=  <=  >=  ==  ===';
+const operators='->  =>  !=  <=  >=  ==  ===  !===';
 const text=[
-  row(`AROLI MONO NF / 0.906 / ${style}`,18),
+  row(`AROLI MONO NF / 0.907 / ${style}`,18),
   row('Aroli Mono',52),
   row('ABCDEFGHIJKLMNOPQRSTUVWXYZ',30),
   row('abcdefghijklmnopqrstuvwxyz',30),
@@ -38,8 +38,8 @@ const text=[
   row('const encaixe = (shadow) => light;',26),
   row('if (j != i && valor <= limite) return ação;',26),
   ...[12,14,16,24].flatMap(size=>[
-    row(`${size} px / if (valor === limite) return true;`,size,'calt=0'),
-    row(`${size} px / if (valor === limite) return true;`,size),
+    row(`${size} px / if (valor !=== limite) return true;`,size,'calt=0'),
+    row(`${size} px / if (valor !=== limite) return true;`,size),
   ]),
   row('12 px / obj.name  3.14  fim.  i j ação -> => !=',12),
   row('14 px / obj.name  3.14  fim.  i j ação -> => !=',14),
@@ -53,6 +53,11 @@ const text=[
     row('}',size),
   ]),
   row('24 px / i j ij ji ação -> => != <= >= == ===',24),
+  row('BTOP / bordas, setas, gráficos',16),
+  row('╭──────────╮ ┌─┬─┐ ↑ ↓ ← → ↵',24),
+  row('│ ⣀⣤⣶⣿ ▖▄▟█ │ ├─┼─┤ ■ ⁰¹²³⁴⁵⁶⁷⁸⁹',24),
+  row('╰──────────╯ └─┴─┘ ╎ ░▒▓',24),
+  row('┘↑ select ↓└ info ↵└ terminate └kill └signals └Nice └Follow',14),
   row('NERD FONT / Git, pasta, terminal, Powerline, Aroli',16),
   row('\ue0a0  \uf07b  \uf120  \ue0b0  '+String.fromCodePoint(0x100000),36),
 ].join('\n');
